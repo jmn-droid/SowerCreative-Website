@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work — Sower Creative</title>
+  <meta name="description" content="Real ad campaigns. Real results. See what Sower Creative has built for small businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESET & BASE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.036;
+      pointer-events: none;
+      z-index: 1050;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAV
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      z-index: 1100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,245,233,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.16);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 0.09em;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+    .nav-wordmark em {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 11px 22px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+    .nav-btn-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      background: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 11px 28px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn-cta:hover {
+      background: transparent;
+      color: var(--forest);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       PAGE HEADER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .page-header {
+      padding: 140px 60px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .slabel {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 24px;
+    }
+    .page-header p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      max-width: 520px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CLIENT SELECTOR
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .client-selector {
+      padding: 0 60px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .selector-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .client-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .client-tab {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 12px 26px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--forest);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .client-tab:hover {
+      background: var(--parch-mid);
+    }
+    .client-tab.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+    .client-tab.placeholder {
+      opacity: 0.38;
+      cursor: default;
+    }
+    .client-tab.placeholder:hover {
+      background: transparent;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       DIVIDER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(27,67,50,0.12);
+      margin: 0 60px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CLIENT PANEL
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .client-panel {
+      display: none;
+      padding: 72px 60px 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .client-panel.active { display: block; }
+
+    .panel-intro {
+      margin-bottom: 60px;
+    }
+    .panel-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .panel-intro p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      max-width: 560px;
+    }
+
+    /* ── Videos ── */
+    .videos-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .video-card {
+      background: var(--parch-mid);
+      overflow: hidden;
+    }
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 9:16 portrait for Meta ads */
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-caption {
+      padding: 16px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    /* ── Results ── */
+    .results-section {
+      margin-bottom: 72px;
+    }
+    .results-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px;
+    }
+    .result-card {
+      background: var(--parch-mid);
+      padding: 36px 32px;
+    }
+    .result-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3.2rem;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .result-number.placeholder-num {
+      color: rgba(27,67,50,0.2);
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+    }
+    .result-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    /* ── Testimonial ── */
+    .testimonial-section {
+      border-left: 3px solid var(--gold);
+      padding: 36px 44px;
+      background: var(--parch-mid);
+      max-width: 760px;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--forest);
+      margin-bottom: 20px;
+    }
+    .testimonial-attr {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.55);
+      padding: 60px 60px 40px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--parchment);
+      letter-spacing: 0.05em;
+    }
+    .footer-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .footer-nav-links { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+    .fl {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .fl:hover { color: var(--parchment); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MOBILE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 768px) {
+      #nav { padding: 16px 24px; }
+      .nav-buttons .nav-btn { display: none; }
+      .page-header { padding: 120px 24px 60px; }
+      .client-selector { padding: 0 24px 48px; }
+      .divider { margin: 0 24px; }
+      .client-panel { padding: 48px 24px 80px; }
+      .videos-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonial-section { padding: 28px 28px; }
+      footer { padding: 48px 24px 32px; }
+      .footer-top { flex-direction: column; gap: 32px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+  <div class="nav-buttons">
+    <a href="index.html#services" class="nav-btn">Services</a>
+    <a href="about.html" class="nav-btn">About</a>
+    <a href="work.html" class="nav-btn active">Our Work</a>
+    <a href="book.html" class="nav-btn-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <p class="slabel">Portfolio</p>
+  <h1>Real ads.<br>Real results.</h1>
+  <p>A look inside the campaigns we've built -- what the ads look like, and how they performed.</p>
+</header>
+
+<!-- CLIENT SELECTOR -->
+<div class="client-selector">
+  <p class="selector-label">Select a client</p>
+  <div class="client-tabs">
+    <button class="client-tab active" data-target="valley-cleaners">Valley Cleaners</button>
+    <button class="client-tab placeholder" disabled>More clients coming soon</button>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════
+     PANEL: VALLEY CLEANERS
+═══════════════════════════════ -->
+<div class="client-panel active" id="valley-cleaners">
+
+  <!-- Intro -->
+  <div class="panel-intro">
+    <h2>Valley Cleaners</h2>
+    <p>Residential and commercial cleaning service based in Eugene, OR. We ran Meta ads to grow their recurring client base and fill their schedule.</p>
+  </div>
+
+  <!-- Videos -->
+  <p class="videos-label">The Ads</p>
+  <div class="videos-grid">
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/13kbr_9eQ-se1Q4qIOMKjnsOuRX4iEjx-/preview"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ad 01 — Valley Cleaners</p>
+    </div>
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1pgs6NVg1Qf96Z-mXKt1F1tLnVHoDO7bE/preview"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ad 02 — Valley Cleaners</p>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="results-section">
+    <p class="results-label">Campaign Results</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <p class="result-number">206</p>
+        <p class="result-label">Leads generated</p>
+      </div>
+      <div class="result-card">
+        <p class="result-number">$9.19</p>
+        <p class="result-label">Avg cost per lead</p>
+      </div>
+      <div class="result-card">
+        <p class="result-number">91K</p>
+        <p class="result-label">Total impressions</p>
+      </div>
+      <div class="result-card">
+        <p class="result-number">2x</p>
+        <p class="result-label">Monthly bookings, first month</p>
+      </div>
+      <div class="result-card">
+        <p class="result-number">3</p>
+        <p class="result-label">New hires to handle volume</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial -->
+  <div class="testimonial-section">
+    <p class="testimonial-quote">"In the first month alone, 2x the amount of bookings we had every single month. We had to hire two people in Eugene and an additional person in Salem just to handle the volume. The results will speak for themselves -- it will be one of the easiest decisions you make."</p>
+    <p class="testimonial-attr">-- Molly, Valley Cleaners</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Sower Creative</span>
+      <span class="footer-tag">Meta Ads + Website Design</span>
+    </div>
+    <nav class="footer-nav-links" aria-label="Footer">
+      <a href="index.html#services" class="fl">Services</a>
+      <a href="about.html" class="fl">About</a>
+      <a href="work.html" class="fl">Our Work</a>
+      <a href="book.html" class="fl">Book a Call</a>
+      <a href="privacy.html" class="fl">Privacy Policy</a>
+      <a href="terms.html" class="fl">Terms of Service</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+</footer>
+
+<script>
+  /* Client tab switching */
+  const tabs = document.querySelectorAll('.client-tab:not(.placeholder)');
+  const panels = document.querySelectorAll('.client-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const target = document.getElementById(tab.dataset.target);
+      if (target) target.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

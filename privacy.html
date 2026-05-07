@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Sower Creative</title>
+  <meta name="description" content="Privacy Policy for Sower Creative.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 48px;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(27,67,50,0.08);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.06em;
+      color: var(--forest);
+      text-decoration: none;
+    }
+    .nav-wordmark em { font-style: italic; font-weight: 400; }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      background: var(--forest);
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.14s;
+    }
+    .nav-btn:hover { opacity: 0.82; }
+
+    /* PAGE */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 148px 32px 100px;
+    }
+
+    .page-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .last-updated {
+      font-size: 12px;
+      color: rgba(26,26,26,0.4);
+      letter-spacing: 0.04em;
+      margin-bottom: 60px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-top: 52px;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(26,26,26,0.82);
+      margin-bottom: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(26,26,26,0.82);
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--forest);
+      text-underline-offset: 3px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0c0c0c;
+      padding: 56px 60px 48px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(250,245,233,0.055);
+      margin-bottom: 28px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 9px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 27px;
+      letter-spacing: 0.07em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links {
+      display: flex;
+      gap: 38px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.14s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(250,245,233,0.17);
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      .page-wrap { padding: 120px 24px 80px; }
+      h1 { font-size: 2.2rem; }
+      footer { padding: 48px 24px 40px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+  <a href="book.html" class="nav-btn">Book a Call</a>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-label">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: April 18, 2026</p>
+  <div class="divider"></div>
+
+  <p>Sower Creative ("we," "us," or "our") operates this website and the services described on it. This Privacy Policy explains what information we collect, how we use it, and your rights around that information. If you have questions, email us at <a href="mailto:lbw@sowercreative.com">lbw@sowercreative.com</a>.</p>
+
+  <h2>Information We Collect</h2>
+  <p>We collect information in two ways: information you give us directly, and information collected automatically.</p>
+  <ul>
+    <li><strong>Contact and booking information</strong> — When you fill out a form or book a call, we collect your name, email address, phone number, and any details you share about your business.</li>
+    <li><strong>Usage data</strong> — We may collect information about how you interact with this site, including pages visited, time spent, and the device or browser you used.</li>
+    <li><strong>Cookies and tracking</strong> — We use cookies and similar technologies to understand site traffic and improve our services. Meta Pixel may be active on this site to measure ad performance.</li>
+  </ul>
+
+  <h2>How We Use Your Information</h2>
+  <ul>
+    <li>To respond to your inquiries and schedule strategy calls</li>
+    <li>To provide and improve our marketing and web design services</li>
+    <li>To send you relevant information about our services (you can opt out at any time)</li>
+    <li>To measure and improve the performance of our advertising campaigns</li>
+    <li>To comply with legal obligations</li>
+  </ul>
+
+  <h2>Sharing Your Information</h2>
+  <p>We do not sell your personal information. We may share it with trusted third-party tools we use to run our business — such as scheduling software, email platforms, and ad tracking tools — but only as needed to deliver our services. All third parties are required to handle your information securely.</p>
+
+  <h2>Meta Pixel</h2>
+  <p>This site may use the Meta Pixel, a tracking tool provided by Meta Platforms, Inc. The Pixel helps us measure the effectiveness of our advertising on Facebook and Instagram. Data collected through the Pixel is subject to Meta's own privacy policy. You can opt out of Meta's data use at <a href="https://www.facebook.com/privacy/explanation" target="_blank" rel="noopener">facebook.com/privacy</a>.</p>
+
+  <h2>Data Retention</h2>
+  <p>We keep your information for as long as needed to deliver our services or as required by law. If you'd like us to delete your information, contact us and we'll take care of it promptly.</p>
+
+  <h2>Your Rights</h2>
+  <p>Depending on where you live, you may have the right to access, correct, or delete the personal information we hold about you. To exercise any of these rights, email us at <a href="mailto:lbw@sowercreative.com">lbw@sowercreative.com</a>.</p>
+
+  <h2>Security</h2>
+  <p>We take reasonable steps to protect your information from unauthorized access or disclosure. No system is 100% secure, but we work to keep your data safe.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy from time to time. When we do, we'll update the date at the top of this page. Continued use of the site after changes means you accept the updated policy.</p>
+
+  <h2>Contact Us</h2>
+  <p>Questions about this policy? Reach us at <a href="mailto:lbw@sowercreative.com">lbw@sowercreative.com</a>.</p>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Sower Creative</span>
+      <span class="footer-tag">Meta Ads + Website Design</span>
+    </div>
+    <nav class="footer-nav-links" aria-label="Footer">
+      <a href="index.html#services" class="fl">Services</a>
+      <a href="index.html#why" class="fl">About</a>
+      <a href="book.html" class="fl">Book a Call</a>
+      <a href="privacy.html" class="fl">Privacy Policy</a>
+      <a href="terms.html" class="fl">Terms of Service</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

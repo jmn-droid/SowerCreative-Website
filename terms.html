@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Sower Creative</title>
+  <meta name="description" content="Terms of Service for Sower Creative.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 48px;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(27,67,50,0.08);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.06em;
+      color: var(--forest);
+      text-decoration: none;
+    }
+    .nav-wordmark em { font-style: italic; font-weight: 400; }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      background: var(--forest);
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.14s;
+    }
+    .nav-btn:hover { opacity: 0.82; }
+
+    /* PAGE */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 148px 32px 100px;
+    }
+
+    .page-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .last-updated {
+      font-size: 12px;
+      color: rgba(26,26,26,0.4);
+      letter-spacing: 0.04em;
+      margin-bottom: 60px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--forest);
+      margin-top: 52px;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(26,26,26,0.82);
+      margin-bottom: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(26,26,26,0.82);
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--forest);
+      text-underline-offset: 3px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0c0c0c;
+      padding: 56px 60px 48px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(250,245,233,0.055);
+      margin-bottom: 28px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 9px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 27px;
+      letter-spacing: 0.07em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links {
+      display: flex;
+      gap: 38px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.14s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(250,245,233,0.17);
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      .page-wrap { padding: 120px 24px 80px; }
+      h1 { font-size: 2.2rem; }
+      footer { padding: 48px 24px 40px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+  <a href="book.html" class="nav-btn">Book a Call</a>
+</nav>
+
+<div class="page-wrap">
+  <p class="page-label">Legal</p>
+  <h1>Terms of Service</h1>
+  <p class="last-updated">Last updated: April 18, 2026</p>
+  <div class="divider"></div>
+
+  <p>These Terms of Service govern your use of the Sower Creative website and any services we provide. By using this site or working with us, you agree to these terms. If you have questions, email us at <a href="mailto:lbw@sowercreative.com">lbw@sowercreative.com</a>.</p>
+
+  <h2>Our Services</h2>
+  <p>Sower Creative provides Meta advertising management, website design, and related digital marketing services for small businesses. The specific scope, deliverables, and pricing for any engagement are outlined in a separate agreement or proposal.</p>
+
+  <h2>Use of This Website</h2>
+  <p>You may use this site for lawful purposes only. You agree not to:</p>
+  <ul>
+    <li>Use this site in any way that violates applicable laws or regulations</li>
+    <li>Attempt to gain unauthorized access to any part of the site or its related systems</li>
+    <li>Copy, reproduce, or redistribute content from this site without our written permission</li>
+    <li>Use automated tools to scrape or collect data from the site</li>
+  </ul>
+
+  <h2>Booking a Call</h2>
+  <p>Scheduling a strategy call through this site does not create a client relationship or obligate either party to enter into a service agreement. It is an exploratory conversation only.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>All content on this site -- including text, graphics, logos, and design -- is owned by Sower Creative or its licensors and protected by applicable intellectual property law. You may not use our content without written permission.</p>
+  <p>Work we create for clients remains our property until payment is received in full, at which point ownership transfers to the client as specified in the applicable service agreement.</p>
+
+  <h2>Results and Guarantees</h2>
+  <p>We are committed to doing excellent work, but we do not guarantee specific advertising results, lead counts, or revenue outcomes. Digital marketing performance depends on many variables outside our control, including market conditions, budget, and client-side factors. Any projections we provide are estimates, not promises.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, Sower Creative will not be liable for any indirect, incidental, or consequential damages arising from your use of this site or our services. Our total liability for any claim related to our services will not exceed the amount you paid us in the 30 days prior to the claim.</p>
+
+  <h2>Third-Party Links and Tools</h2>
+  <p>This site may link to third-party websites or use third-party tools. We are not responsible for the content, privacy practices, or reliability of any third-party services. Use them at your own discretion.</p>
+
+  <h2>Changes to These Terms</h2>
+  <p>We may update these terms at any time. Changes take effect when posted to this page. Continued use of the site after changes means you accept the updated terms.</p>
+
+  <h2>Governing Law</h2>
+  <p>These terms are governed by the laws of the State of Oregon, without regard to conflict of law provisions. Any disputes will be handled in Lane County, Oregon.</p>
+
+  <h2>Contact Us</h2>
+  <p>Questions about these terms? Email us at <a href="mailto:lbw@sowercreative.com">lbw@sowercreative.com</a>.</p>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Sower Creative</span>
+      <span class="footer-tag">Meta Ads + Website Design</span>
+    </div>
+    <nav class="footer-nav-links" aria-label="Footer">
+      <a href="index.html#services" class="fl">Services</a>
+      <a href="index.html#why" class="fl">About</a>
+      <a href="book.html" class="fl">Book a Call</a>
+      <a href="privacy.html" class="fl">Privacy Policy</a>
+      <a href="terms.html" class="fl">Terms of Service</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

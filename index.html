@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sower Creative — Meta Ads &amp; Website Design for Small Business</title>
+  <meta name="description" content="We build and run Meta ad campaigns and high-converting websites for small businesses ready to grow. Book a free strategy call with Sower Creative.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESET & BASE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* Paper grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.036;
+      pointer-events: none;
+      z-index: 1050;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MAIN SITE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAV
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      z-index: 1100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: padding 0.25s, background 0.25s, border-color 0.25s, backdrop-filter 0.25s;
+    }
+    #nav.scrolled {
+      padding: 14px 60px;
+      background: rgba(250,245,233,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.16);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 0.09em;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+    .nav-wordmark em {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .nav-buttons {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 11px 22px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+    .nav-btn-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      background: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 11px 28px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn-cta:hover {
+      background: transparent;
+      color: var(--forest);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SCROLL REVEAL SYSTEM
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .rv {
+      opacity: 0;
+      transition: opacity 0.60s ease;
+    }
+    .rv.shown { opacity: 1; }
+    .rv[data-d="1"] { transition-delay: 0.07s; }
+    .rv[data-d="2"] { transition-delay: 0.14s; }
+    .rv[data-d="3"] { transition-delay: 0.21s; }
+    .rv[data-d="4"] { transition-delay: 0.29s; }
+
+    /* Section label */
+    .slabel {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .slabel::before {
+      content: '';
+      display: block;
+      width: 26px;
+      height: 1px;
+      flex-shrink: 0;
+    }
+    .slabel-dark  { color: var(--gold); }
+    .slabel-dark::before  { background: var(--gold); opacity: 0.5; }
+    .slabel-light { color: var(--gold); }
+    .slabel-light::before { background: var(--gold); opacity: 0.45; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 150px 48px 100px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 68% 32%, #EDE5CB 0%, transparent 52%),
+        radial-gradient(ellipse at 22% 78%, #E9E1C8 0%, transparent 48%);
+      position: relative;
+      overflow-x: hidden;
+    }
+    .hero-inner { max-width: 860px; width: 100%; }
+
+    h1.hero-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3.8rem, 8.8vw, 7.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.015em;
+      color: var(--forest);
+      margin: 28px 0 36px;
+    }
+    h1.hero-hed em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.65;
+      max-width: 490px;
+      margin: 0 auto 52px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 54px;
+      transition: background 0.18s, transform 0.14s;
+    }
+    .btn-forest {
+      color: var(--parchment);
+      background: var(--forest);
+    }
+    .btn-forest:hover { background: #0d2619; transform: translateY(-2px); }
+    .btn-parch {
+      color: var(--forest);
+      background: var(--parchment);
+    }
+    .btn-parch:hover { background: var(--parch-mid); transform: translateY(-2px); }
+
+    .scroll-indicator {
+      width: 1px;
+      height: 68px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 70px auto 0;
+      opacity: 0.32;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #services {
+      padding: 128px 60px;
+      background: var(--parchment);
+    }
+    .services-inner { max-width: 1080px; margin: 0 auto; }
+
+    .services-preamble {
+      margin-bottom: 72px;
+    }
+    .services-preamble .slabel { margin-bottom: 26px; }
+    .services-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.65rem, 2.8vw, 2.3rem);
+      line-height: 1.38;
+      color: var(--forest);
+      max-width: 620px;
+      opacity: 0.82;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .svc {
+      background: var(--parchment);
+      padding: 64px 52px 60px;
+    }
+    .svc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 28px;
+      display: block;
+    }
+    .svc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+      line-height: 1.08;
+      color: var(--forest);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .svc-rule {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.42;
+      margin-bottom: 24px;
+    }
+    .svc-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.65;
+      margin-bottom: 32px;
+    }
+    .svc-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .svc-items li {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.42;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .svc-items li::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.55;
+      flex-shrink: 0;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHY IT WORKS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #why {
+      padding: 128px 60px;
+      background: var(--forest);
+    }
+    .why-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .why-left {
+      position: sticky;
+      top: 128px;
+    }
+    .why-left .slabel { margin-bottom: 26px; }
+    h2.why-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 3.2vw, 3.1rem);
+      line-height: 1.1;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+    h2.why-hed em { font-style: italic; color: var(--gold); opacity: 0.85; }
+
+    .why-points { display: flex; flex-direction: column; }
+    .why-pt {
+      padding: 48px 0;
+      border-top: 1px solid rgba(250,245,233,0.1);
+    }
+    .why-pt:last-child { border-bottom: 1px solid rgba(250,245,233,0.1); }
+    .why-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .why-pt-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.52rem;
+      line-height: 1.25;
+      color: var(--parchment);
+      margin-bottom: 13px;
+    }
+    .why-pt-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(250,245,233,0.5);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESULTS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #results {
+      padding: 128px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 18% 82%, #EBE2C8 0%, transparent 52%);
+    }
+    .results-inner { max-width: 1080px; margin: 0 auto; }
+
+    .results-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 72px;
+      flex-wrap: wrap;
+    }
+    h2.results-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 4.5vw, 3.7rem);
+      line-height: 1.05;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.results-hed em { font-style: italic; color: var(--gold); }
+    .results-note {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.35;
+      max-width: 220px;
+      text-align: right;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+      margin-bottom: 2px;
+    }
+    .stat {
+      background: var(--parchment);
+      padding: 60px 44px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3.4rem, 5.5vw, 5.4rem);
+      line-height: 1;
+      color: var(--forest);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 3px;
+    }
+    .stat-num .sfx {
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 600;
+      align-self: flex-end;
+      margin-bottom: 5px;
+    }
+    .stat-div {
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.38;
+      margin: 0 auto 13px;
+    }
+    .stat-lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.44;
+    }
+
+    .testimonial {
+      background: var(--parchment);
+      border: 1px solid rgba(27,67,50,0.11);
+      padding: 56px 60px;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.16;
+      position: absolute;
+      top: 24px;
+      left: 48px;
+    }
+    .testimonial-txt {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--forest);
+      max-width: 640px;
+      margin: 0 auto 26px;
+      text-align: center;
+      opacity: 0.68;
+    }
+    .testimonial-attr {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.32;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA SECTION
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #cta-sec {
+      padding: 148px 60px;
+      background: var(--forest);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Radial glow */
+    #cta-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(212,160,23,0.08) 0%, transparent 62%);
+      pointer-events: none;
+    }
+    /* Ghost letterform */
+    #cta-sec::after {
+      content: 'SC';
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 52vw;
+      line-height: 0.8;
+      color: rgba(250,245,233,0.022);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.06em;
+    }
+    .cta-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-inner .slabel { justify-content: center; margin-bottom: 26px; }
+    h2.cta-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.9rem, 5.5vw, 4.7rem);
+      line-height: 1.06;
+      color: var(--parchment);
+      margin-bottom: 26px;
+      letter-spacing: -0.01em;
+    }
+    h2.cta-hed em { font-style: italic; color: var(--gold); }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(250,245,233,0.52);
+      max-width: 430px;
+      margin: 0 auto 52px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer {
+      background: #0c0c0c;
+      padding: 72px 60px 56px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(250,245,233,0.055);
+      margin-bottom: 34px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 9px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 27px;
+      letter-spacing: 0.07em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links {
+      display: flex;
+      gap: 38px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.14s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(250,245,233,0.17);
+      letter-spacing: 0.03em;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 900px) {
+      .why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .why-left { position: static; }
+    }
+    @media (max-width: 768px) {
+      #nav, #nav.scrolled { padding: 18px 24px; }
+      .nav-buttons { right: 24px; }
+      .nav-buttons .nav-btn:nth-child(1),
+      .nav-buttons .nav-btn:nth-child(2) { display: none; }
+      #hero { padding: 112px 24px 80px; }
+      #services, #why, #results, #cta-sec { padding: 88px 24px; }
+      .services-grid, .stats-row { grid-template-columns: 1fr; }
+      .svc { padding: 48px 28px; }
+      .results-hdr { flex-direction: column; align-items: flex-start; }
+      .results-note { text-align: left; max-width: 100%; }
+      .testimonial { padding: 44px 28px; }
+      footer, .footer-top { padding-left: 24px; padding-right: 24px; }
+      .footer-top { flex-direction: column; }
+      .splash-monogram { width: 240px; }
+      .splash-sower { font-size: 42px; }
+      .splash-creative { font-size: 16px; }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES & ABOUT PAGE HEROES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #services-hero {
+      padding: 180px 60px 96px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 72% 28%, #EDE5CB 0%, transparent 50%),
+        radial-gradient(ellipse at 18% 80%, #E9E1C8 0%, transparent 48%);
+    }
+    #about-hero {
+      padding: 180px 60px 96px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 70% 30%, #EDE5CB 0%, transparent 52%),
+        radial-gradient(ellipse at 20% 85%, #E9E1C8 0%, transparent 48%);
+    }
+    .page-hero-inner { max-width: 1080px; margin: 0 auto; }
+    h1.page-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(4rem, 9vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin: 28px 0 36px;
+      max-width: 800px;
+    }
+    h1.page-hed em { font-style: italic; color: var(--gold); }
+    .page-sub {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.62;
+      max-width: 520px;
+    }
+    .page-hero-rule {
+      width: 1px;
+      height: 64px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin-top: 72px;
+      opacity: 0.3;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES — PACKAGE OVERVIEW
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #package {
+      padding: 112px 60px;
+      background: var(--forest);
+    }
+    .package-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+    .package-left .slabel { margin-bottom: 28px; }
+    h2.pkg-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+    h2.pkg-hed em { font-style: italic; color: var(--gold); opacity: 0.9; }
+    .pkg-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(250,245,233,0.55);
+      margin-top: 20px;
+    }
+    .pkg-included {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(250,245,233,0.06);
+    }
+    .pkg-item {
+      background: rgba(27,67,50,0.4);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .pkg-item-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.45;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 32px;
+    }
+    .pkg-item-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--parchment);
+      margin-bottom: 6px;
+    }
+    .pkg-item-content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(250,245,233,0.45);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES — DEEP DIVES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .service-deep { padding: 112px 60px; }
+    .service-deep.alt {
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 80% 40%, #EDE5CB 0%, transparent 52%);
+    }
+    .service-deep.base {
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 20% 60%, #E9E1C8 0%, transparent 52%);
+    }
+    .deep-inner { max-width: 1080px; margin: 0 auto; }
+    .deep-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 80px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(27,67,50,0.1);
+    }
+    .deep-header-left .slabel { margin-bottom: 24px; }
+    h2.deep-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.deep-hed em { font-style: italic; color: var(--gold); }
+    .deep-header-right {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.62;
+    }
+    .deep-includes { margin-bottom: 72px; }
+    .deep-section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.4;
+      margin-bottom: 28px;
+    }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .include-item { background: var(--parchment); padding: 36px 32px; }
+    .include-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.35;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .include-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+    .include-body { font-size: 13px; line-height: 1.75; color: var(--ink); opacity: 0.55; }
+    .deep-process { margin-bottom: 0; }
+    .process-steps { display: flex; flex-direction: column; }
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 40px 0;
+      border-top: 1px solid rgba(27,67,50,0.1);
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+    .step-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--forest);
+      opacity: 0.15;
+      line-height: 1;
+    }
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: var(--forest);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .step-content p { font-size: 14px; line-height: 1.8; color: var(--ink); opacity: 0.58; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES — HOW IT WORKS TOGETHER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #together {
+      padding: 112px 60px;
+      background: var(--forest);
+    }
+    .together-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+    .together-left .slabel { margin-bottom: 28px; }
+    h2.together-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+    h2.together-hed em { font-style: italic; color: var(--gold); opacity: 0.9; }
+    .together-body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(250,245,233,0.52);
+      margin-top: 18px;
+    }
+    .together-points { display: flex; flex-direction: column; gap: 28px; }
+    .together-pt { display: flex; gap: 20px; align-items: flex-start; }
+    .together-pt-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.4;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .together-pt-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--parchment);
+      margin-bottom: 6px;
+    }
+    .together-pt-text p { font-size: 14px; line-height: 1.75; color: rgba(250,245,233,0.45); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES — FAQ
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #faq {
+      padding: 112px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 60% 30%, #EDE5CB 0%, transparent 52%);
+    }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-inner .slabel { margin-bottom: 56px; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item {
+      padding: 36px 0;
+      border-top: 1px solid rgba(27,67,50,0.1);
+      cursor: pointer;
+    }
+    .faq-item:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      color: var(--forest);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .faq-toggle {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+      transition: transform 0.21s ease;
+      user-select: none;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.62;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.21s ease, padding-top 0.21s ease;
+      padding-top: 0;
+    }
+    .faq-item.open .faq-a { max-height: 300px; opacity: 0.62; padding-top: 18px; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       ABOUT — STORY
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #story { padding: 112px 60px; background: var(--parchment); }
+    .story-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .story-left .slabel { margin-bottom: 28px; }
+    h2.story-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.story-hed em { font-style: italic; color: var(--gold); }
+    .story-body { display: flex; flex-direction: column; gap: 20px; }
+    .story-body p { font-size: 16px; line-height: 1.8; color: var(--ink); opacity: 0.7; }
+    .story-body p strong { color: var(--forest); font-weight: 600; opacity: 1; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       ABOUT — FOUNDERS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #founders {
+      padding: 112px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 50% 50%, #EDE5CB 0%, transparent 60%);
+    }
+    .founders-inner { max-width: 1080px; margin: 0 auto; }
+    .founders-inner .slabel { margin-bottom: 56px; }
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .founder-card { background: var(--parchment); padding: 64px 52px; }
+    .founder-initial {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 1.15;
+      color: var(--forest);
+      opacity: 0.12;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+    .founder-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .founder-rule { width: 32px; height: 1px; background: var(--gold); opacity: 0.38; margin-bottom: 24px; }
+    .founder-bio { font-size: 15px; line-height: 1.8; color: var(--ink); opacity: 0.65; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       ABOUT — VALUES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #values { padding: 112px 60px; background: var(--forest); }
+    .values-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .values-left { position: sticky; top: 120px; }
+    .values-left .slabel { margin-bottom: 26px; }
+    h2.values-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      line-height: 1.1;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+    h2.values-hed em { font-style: italic; color: var(--gold); opacity: 0.85; }
+    .values-sub { font-size: 14px; line-height: 1.75; color: rgba(250,245,233,0.45); margin-top: 16px; }
+    .values-list { display: flex; flex-direction: column; }
+    .value-item { padding: 48px 0; border-top: 1px solid rgba(250,245,233,0.1); }
+    .value-item:last-child { border-bottom: 1px solid rgba(250,245,233,0.1); }
+    .value-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.52rem;
+      line-height: 1.25;
+      color: var(--parchment);
+      margin-bottom: 13px;
+    }
+    .value-body { font-size: 15px; line-height: 1.8; color: rgba(250,245,233,0.5); }
+    .value-verse {
+      margin-top: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       ADDITIONAL RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 900px) {
+      .values-inner { grid-template-columns: 1fr; gap: 48px; }
+      .values-left { position: static; }
+      .story-inner { grid-template-columns: 1fr; gap: 48px; }
+      .package-inner, .deep-header, .together-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      #services-hero, #about-hero { padding: 130px 24px 72px; }
+      #story, #founders, #values { padding: 80px 24px; }
+      .founders-grid { grid-template-columns: 1fr; }
+      .founder-card { padding: 44px 28px; }
+      .service-deep, #package, #together, #faq { padding: 80px 24px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .includes-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SPLASH SCREEN
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 50% 45%, #F0E8D0 0%, var(--parchment) 65%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 32px;
+      transition: opacity 0.44s ease, visibility 0.44s ease;
+    }
+    #splash.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+    .splash-monogram { width: 320px; height: auto; overflow: visible; }
+    .splash-wordmark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .splash-sower {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 52px;
+      letter-spacing: 0.1em;
+      color: var(--forest);
+      line-height: 1;
+      clip-path: inset(0% 100% 0% 0%);
+      animation: splashRevealRight 0.34s cubic-bezier(0.16, 1, 0.3, 1) 0.59s forwards;
+    }
+    .splash-rule {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+      opacity: 0;
+      animation: splashRuleExpand 0.25s ease-out 1.03s forwards;
+    }
+    .splash-creative {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0.42em;
+      color: var(--gold);
+      line-height: 1;
+      text-transform: uppercase;
+      clip-path: inset(0% 100% 0% 0%);
+      animation: splashRevealRight 0.34s cubic-bezier(0.16, 1, 0.3, 1) 1.23s forwards;
+    }
+    .enter-prompt {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0;
+      animation: splashPromptIn 0.29s ease 1.62s forwards, splashPromptBlink 0.98s ease-in-out 1.91s infinite;
+    }
+    #splash-seed {
+      transform-box: fill-box;
+      transform-origin: center center;
+      opacity: 0;
+      transform: scale(0);
+      animation: splashSeedPop 0.18s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s forwards;
+    }
+    #splash-s { clip-path: inset(100% 0% 0% 0%); animation: splashRevealUp 0.49s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards; }
+    #splash-c {
+      clip-path: inset(100% 0% 0% 0%);
+      animation: splashRevealUp 0.49s cubic-bezier(0.16, 1, 0.3, 1) 0.83s forwards,
+                 splashGoldPulse 1.47s ease-in-out 1.47s infinite alternate;
+    }
+    @keyframes splashSeedPop  { to { opacity: 1; transform: scale(1); } }
+    @keyframes splashRevealUp { from { clip-path: inset(100% 0% 0% 0%); } to { clip-path: inset(0% 0% 0% 0%); } }
+    @keyframes splashRevealRight { from { clip-path: inset(0% 100% 0% 0%); } to { clip-path: inset(0% 0% 0% 0%); } }
+    @keyframes splashRuleExpand  { to { width: 220px; opacity: 0.45; } }
+    @keyframes splashPromptIn    { from { opacity: 0; } to { opacity: 0.45; } }
+    @keyframes splashPromptBlink { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.15; } }
+    @keyframes splashGoldPulse   { from { filter: drop-shadow(0 0 0px rgba(212,160,23,0)); } to { filter: drop-shadow(0 0 10px rgba(212,160,23,0.3)); } }
+
+  </style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <svg class="splash-monogram" viewBox="0 0 912.11 527.49" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        .sc1 { fill: #d4a017; }
+        .sc2 { fill: #be8b5a; }
+        .sc3 { fill: #1b4332; }
+        .sc4 { fill: #8b5e3c; stroke: #8b5e3c; stroke-miterlimit: 10; }
+      </style>
+    </defs>
+    <g id="splash-s">
+      <path class="sc3" d="M167.95,506.68c-1.29.78-29.41-15.73-48.41-28.58-11.63-7.87-27.66-11.15-31.41-14.68,12.94-2.54,37.79,5.89,47.99,11.26,20.7,10.9,15.75,10.05,24.05,14.74M160.17,489.41c8.63,5.85,24.67,8.98,35.51,7.2,29.85-4.92,39.5-56.33,40.35-80.26.54-15.12-4.2-28.55-10.12-42.06s-18.35-25.07-33.99-25.94c-11.57-.65-22.75,1.49-34.13,3.6-30.24,5.59-60.57-.51-86.06-17.57-8.92-5.97-16.53-12.3-24.56-19.49-14.58-13.06-29.55-24.97-45.48-36.28-.98-.69-1.93-3.64-1.66-4.73.31-1.27,3.16-2.53,4.76-2.43,36.18,2.2,54.09-8.59,87.77-15.38,91.31-18.41,135.41,82.61,119.81,68.69-15.74-14.05-33.66-25.36-54.04-31.73s-41.99-8.79-63.14-2.73c21.21,1.03,40.59,2.09,59.68,10.14,19.16,6.33,35.88,16.52,51.2,29.6,14.48,11.95,25.41,25.95,34.91,43.1,2.76-24.48,4.91-47.58,11.12-70.72,10.02-37.37,31.27-74.96,68-90.83,10.4-4.5,21.16-5.65,32.22-9.46-19.81-2.18-39.11,3.63-55.42,14.07-11.96,7.65-18.13,19.79-22.87,17.78,1.9-15.3,7.31-30.08,19.04-40.6,15.46-13.85,37.12-19.71,57.47-15.69l26.75,5.29c22.15,4.38,39.72-6.61,43.85-6.03.92.13,1.19,3.58.62,4.61-6.87,12.5-16.44,25.91-26.7,36.76-18.21,19.26-41.12,30.99-67.63,32.44-8.36.46-16,1-25.2,2.82,19.29,8.34,35.46,18.91,51.4,31.93,18.43,15.06,31.98,34.23,38.99,57.03,4.53,14.73,5.01,28.46,3.98,43.75-3.01,44.74-27.25,84.16-66.52,106.06-38.15,21.27-83.57,27.54-126.75,23.51-12.47-1.16-23.75-4.45-35.41-9.18M360.7,427.86c10.84-24.32,12.17-51.49,5.83-77.08-3.32-13.4-9.38-24.6-18.5-34.59-4.86-5.33-9.69-10.44-15.67-14.56-17.33-11.96-35.09-21.99-55.52-29.37-15.15,25.18-19.93,68.93-21.59,97.19l-3.11,52.95c-3.59,27.35-9.28,53.24-25.55,77.3,20.78.95,40.51-2.67,59.92-8.97,31.73-10.3,60.41-31.96,74.18-62.86Z"/>
+      <path class="sc3" d="M150.88,178.94c17.84,17.38,38.58,29.81,61.46,38.87l59.4,23.51c-6.15,7.15-10.25,14.18-14.58,22.67l-33-13.03c-15.09-5.96-29.24-12.34-43.98-19.02-14.6-6.61-26.98-14.57-39.36-24.62-24.07-19.55-39.12-46.65-40.62-78.04-1.28-26.86,7.79-52.08,26.04-71.67,9.77-10.49,20.35-19.16,33.4-25.4,41.87-20,90.13-20.39,130.18,4.18,8.83,5.42,15.75,12.51,24.13,18.41-14.62-24.13-38.78-36.83-66.47-43.38,13.07-7.23,28.04-8.31,41.85-6.49,27.3,3.6,46.95,23.85,64.63,43.21,7.08,7.75,15,13.35,24.63,17.51,20.16,8.73,31.75,2.1,32.41,6.08.17,1-.56,3.51-1.66,4.39-20.88,16.6-48.02,25.83-75.27,23.73-24.02-1.85-45.08-12.24-63.07-27.59-20.78-17.73-23.04-32.81-32.02-37.15-9.28-4.48-19.33-4.63-29.35-3.15-44,6.49-83.45,36.95-84.05,84.33-.3,23.7,7.8,45.6,25.3,62.65Z"/>
+    </g>
+    <g id="splash-seed">
+      <path class="sc4" d="M167.77,506.25c-2.09,1.25-3.71,4.08-5.09,6.01-8.19,11.47-22.27,15.48-36.32,14.62-35.93-2.2-73.15-32.03-78.3-67.19-1.27-8.68,2.18-17.21,10.89-20.53,10.26-3.9,21.16-6.66,32.63-7.23,23.37-1.16,45.79,7.75,64.39,21.41,9.9,7.27,17.93,16.63,16.33,27.61-.25,1.71-.95,3.65-2.22,4.15-1.81.71-4.99-.8-6.17-1.8-6.16-5.19-17.1-17.56-30.8-23.56-17.68-7.75-52.29-.59-63.4,2.09,10.63,2.11,35.83,17.46,45.07,23.72l31.66,6.66,20.81,14.01"/>
+      <path class="sc2" d="M146.27,491.55c7.42,4.95,6.56,18.56,3.54,22.29-9.56,11.79-34.61,4.35-35.88,4.06-24.3-5.49-54.23-27.01-57.79-54.02-.88-6.67-2.53-15.86,3.5-18.4,3.35-1.41,26.28-11.68,50.44-6.07,27.07,6.29,51.24,24.63,55.18,32.34,5.27,10.3,1.43,12.48.68,13.1s-7.2-4.77-8.12-5.42c-5.52-3.92-19.35-10.58-32.16-14.63-17.9-5.66-45.94-1.55-32.22.08,2.87,0,17.66,5.03,22.18,7.18,14.17,6.75,25.42,15.35,30.66,19.49"/>
+    </g>
+    <g id="splash-c">
+      <path class="sc1" d="M751.2,99.54c-9.87-3.03-17.37-7.64-24.97-13.96,1.7,6.89,6.67,10.95,11.45,15.68,11.38,11.25,23.71,20.33,36.1,31.33-13.48-5.91-23.34-15.51-34.66-23.79-7.16-5.24-11.79-13.65-17.64-14.27-9.72-1.04-17.4-3.9-26.64-8.34,5.02,11.66,34.77,26.54,46.41,32.81,1.2,2,.56,2.03-1.22,1-21.04-7.85-30.21-14.14-48.36-26.58l-13.05-.97c-10.4-.78-19.92-4.37-27.1-12.16-2.86-3.1-6.57-7.35-9.67-9.78-7.54-2.51-14.63.79-21.31,3.78-18.45,8.27-34.5,18.92-50.01,32.03-31.1,26.28-54.04,59.86-68.47,98.1-10.1,26.76-15.02,54.31-16.13,83.01-2.26,58.43,17.01,108.43,57.09,150.34-10.22-17.37-21.4-41.58-25.87-61.06-3.08-13.44-5.78-26.45-6.55-40.29-3.86-69.82,20.89-129.99,71.56-177.5,4.96-4.65,8.63-8.6,15.35-11.48.03,3.16-1.07,5.41-2.97,7.69-20.47,24.51-36.61,51.98-46.21,82.52l-4.35,13.85c-15.53,49.37-12.21,111.04,10.42,158.89,6.96,14.73,15.57,27.59,26.15,40.13,14.61,17.32,32.63,30.62,52.74,41,8.14,4.2,15.63,8.96,24.49,11.45,12.78,3.59,25.59,5.08,38.91,6.22,24.84,2.12,51.19-1.48,75.62-7.59,37.32-9.33,74.32-32.22,101.96-59.03l16.77-16.26c.61-.59,3.01-.6,3.65-.55,5.65.46-13.97,22.53-14.83,23.51-20.3,23.15-44.54,40.54-72.37,54-59.24,28.66-131.16,32.47-192.49,6.85-66.81-27.91-123.89-88.22-145.47-157.54-4.67-15-8.56-29.3-10.29-44.84-3.01-27-3.4-53.29.63-80.1,4.76-31.65,13.35-61.43,25.02-90.99.93-2.37,2.25-4.01,4.04-5.58.92,6.34-.31,10.67-1.51,15.88l-6.35,27.62c-6.66,28.96-9.25,57.99-8.44,87.27.81-3.13,1.48-5.74,1.93-8.8,9-61.38,39.93-116.56,87.34-156.7,19.66-16.65,42.09-28.96,66.41-37.64,11.45-4.09,7.76-11.89,18.88-23.85,6.44-6.94,13.55-12.22,22.94-14.19,5.46-1.14,10.04-3.72,15.23-6,19.56-8.57,40.31-13.49,62.06-14.64l-27.28,6.83c-6.7,1.68-45.34,12.21-40.67,24.63,9.98-9.64,21.6-10.03,33.85-12.18,12.98-2.28,25.21-8.04,38.88-7.74l24.13.53-13.86,1.02c-13.82,1.02-27.05,4.48-40.09,8.7-5.63,1.82-8.86,5.23-9.7,12.76,10.67-9.91,25.03-9.19,39.52-10.52l30.01-2.75c14.77-1.35,29.07.2,43.12,4.06-4.25.82-8.16-.23-12.13-.37-17.08-.59-42.21.36-58.28,5.26-3.19,3.94-6.02,7.69-8.63,11.72,14.56-7.47,28.31-8.43,42.46-2.89,5.32,2.09,12.11,1.18,17.84,2.08,14.09,2.23,27.18,5.42,40.8,9.41.96.52,1.85,1.15,1.26,1.23-17.83-2.75-39.43-8.33-56.07-5.31-5.12.93-8.5,4.87-12.06,9.74,16.88-9.38,30.2-2.2,45.13,3.59,21.5,8.33,44.96,12.78,63.53,27.87l-9.94-3.85c-10.84-4.2-44.41-18.85-54.59-15.53-4.36,1.42-7.81,3.88-11.83,6.33-1.93.4-1.77.6.1,1.14,27.46-7.13,35.3,7.55,51.35,13.58,13.43,5.05,32.9,16.96,43.99,26.49-.1,1.3-.12,1.33-.54,1.38l-20.47-12.44c-6.32-3.84-13.44-6.47-20.24-9.64-7.38-3.44-15.02-1.62-22.65,2.11,19.97,6.13,23.7,14,31.66,32,2.17,4.91,7.3,8.73,10.86,12.88,9.68,11.28,19.71,21.67,25.23,36.01-11.02-14.65-21.91-27.86-35.26-40.01-2.78-2.53-5.58-4.67-9.34-5.43-9.99-2.01-18.87-5.62-26.73-11.81-.92,7.84,3.83,13.31,8.63,18.66,7.49,8.34,15.13,15.89,23.93,23,3.17,2.55,6.18,5.2,8.96,8.28-13.23-5.21-37.02-30.77-45.16-35.9-7.17-4.52-13.67-8.86-20-13.78,6.03,10.64,12.71,19.61,20.65,28.04,4.96,5.27,9.95,9.89,14.47,15.88-16.87-11.4-28.98-26.61-40.83-42.55-6.03-4.55-13.84-7.48-18.41-13.98-.86-.8-1.36-1.01-1.81-.36,6.02,14.74,21.47,32.72,32.31,43.19,2.76,2.66,5.18,5.36,7.58,8.95-16.86-11.55-30.04-26.8-41.62-43.9-1.61-2.38-3.88-6.27-6.32-7.11-9.79-3.38-17.23-8.09-23.75-15.66-3.02,4.31,18.63,26.34,22.01,29.81,4.46,4.57,9.38,7.97,12.8,13.88-14.32-9.25-25.59-20.71-36.27-33.37-1.56-1.85-4.12-3.64-6.75-4.45ZM682.38,50.31c11.08-.85,22.36-14.73,24.89-23.43-13.86.23-24.57,8.33-30.06,19.65,6.18-3.46,10.18-7.56,16.17-9.63l-11,13.41ZM651.19,52.88c11.06-4.01,18.66-14.29,20.73-25.52-13.22,2.21-22.02,12.32-25.58,23.19,4.47-4.87,8.09-9.26,14.43-12.11-2.47,5.8-6.03,9.69-9.58,14.44ZM716.38,50.22c7.27,2.06,26.96-12.08,28.43-19.85-12.42-.79-24.62,3.72-31.74,14.86,4.85-2.39,9.23-4.64,15.46-6.88-3.54,5.14-7.54,7.72-12.14,11.87ZM748.47,57.29c13.17,2.24,25.45-2.71,33.71-12.55-9.26-4-27.91-1.75-34.98,6.58,6.38-1.3,11.93-3.26,19.63-3.85-5.89,5.34-12.24,7.36-18.36,9.81ZM798.32,64.67l-13.91,4.14c10.89,4.26,22.56,1.66,31.89-4.75-11.54-6.86-25.28-7.14-36.24-.64l13.29-.54c1.96-.08,4,.33,4.97,1.79ZM685.68,64.92c6.1,12.05,18.08,21.23,32.63,22.29-4.19-13.04-15.87-28.61-30.26-27.33l3.89,4.06c3.54,3.69,7.57,6.25,8.97,11.58l-15.23-10.6ZM750.69,92.94c-.84-13.44-11.6-30.95-26.46-31.88l9.89,12.68c.39.5,1.02,2.85.45,2.7-.43-.11-2.11-.52-2.48-.81l-8.56-6.98c1.52,9.37,17.67,21.95,27.15,24.3ZM686.71,86.54c-3.59-9.77-21.15-25.69-32.9-22.97l13.24,11.96c-7.16.71-9.29-4.44-15.81-5.6,8.49,9.39,19.53,17.75,35.47,16.62ZM758.26,76.74c3.71,10.9,11.22,20.69,23.61,25.28.55-14.1-8.11-27.57-21.59-32.26l5.18,8.79c2.1,3.57,4.43,5.91,4.99,10.36l-12.19-12.16ZM818.48,88.19c10.16,5.19,20.27,4.54,29.9.21-9.63-6.4-21.17-9.19-32.44-6.17,6.58,1.48,11.66,1.99,17.92,4.28-6.01,1.6-10.58,1.5-15.38,1.69ZM791.71,91.19c3.1,9.47,7.81,16.66,16.96,19.82.25-11.85-4.96-23.77-16.09-29.21,1.07,7.12,7.47,10.46,7.47,18.7-3.3-3.19-5.95-6.39-8.34-9.31ZM835.13,126.01c-.63-7.11-6.74-23.35-13.59-25.11l6.03,13.06-7.34-5.15c3,7.09,5.69,14.87,14.9,17.2ZM867.11,126.68c-2.8-12.66-12.94-21.36-25.02-22.82,4.92,4.12,9.56,6.42,11.7,12.25l-13.53-6.95c4,8.7,15.98,15.05,26.86,17.52Z"/>
+    </g>
+  </svg>
+  <div class="splash-wordmark">
+    <span class="splash-sower">SOWER</span>
+    <div class="splash-rule"></div>
+    <span class="splash-creative">CREATIVE</span>
+  </div>
+  <p class="enter-prompt" id="enterPrompt">Scroll to enter</p>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-wordmark">Sower <em>Creative</em></a>
+  <div class="nav-buttons">
+    <a href="#services" class="nav-btn">Services</a>
+    <a href="about.html" class="nav-btn">About</a>
+    <a href="work.html" class="nav-btn">Our Work</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN SITE
+═══════════════════════════════════════════════════════ -->
+<div id="main">
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="slabel slabel-dark rv left">Meta Ads + Website Design</p>
+      <h1 class="hero-hed rv up" data-d="1">
+        Plant the seed.<br><em>Harvest the leads.</em>
+      </h1>
+      <p class="hero-sub rv up" data-d="2">
+        We build and manage Meta ad campaigns for small businesses that are serious about growth. More leads, better clients, real results.
+      </p>
+      <a href="book.html" class="btn btn-forest rv up" data-d="3">Book a Free Call</a>
+      <div class="scroll-indicator rv up" data-d="4"></div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="services-inner">
+      <div class="services-preamble">
+        <p class="slabel slabel-dark rv left">What We Do</p>
+        <p class="services-intro rv up" data-d="1">
+          Two services built for small businesses that are serious about growth.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="svc rv up">
+          <span class="svc-num">01</span>
+          <h2 class="svc-title">Meta Ads<br>Management</h2>
+          <div class="svc-rule"></div>
+          <p class="svc-body">Targeted campaigns built from the ground up. We handle strategy, creative direction, ad copy, audience research, and ongoing optimization. Every dollar working toward a real customer.</p>
+          <ul class="svc-items">
+            <li>Campaign strategy &amp; setup</li>
+            <li>Ad creative &amp; copy</li>
+            <li>Audience research &amp; targeting</li>
+            <li>Ongoing optimization</li>
+            <li>Monthly performance reports</li>
+          </ul>
+        </div>
+        <div class="svc rv up" data-d="2">
+          <span class="svc-num">02</span>
+          <h2 class="svc-title">Website<br>Design</h2>
+          <div class="svc-rule"></div>
+          <p class="svc-body">A high-converting website built for your business. Designed to turn visitors into leads, fast-loading, mobile-first, and built to support your ads.</p>
+          <ul class="svc-items">
+            <li>Custom design</li>
+            <li>Mobile-first build</li>
+            <li>CTA-driven layout</li>
+            <li>Brand consistency</li>
+            <li>SEO-ready structure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY IT WORKS ── -->
+  <section id="why">
+    <div class="why-inner">
+      <div class="why-left">
+        <p class="slabel slabel-light rv left">Why It Works</p>
+        <h2 class="why-hed rv up" data-d="1">
+          We do fewer<br>things. <em>Better.</em>
+        </h2>
+      </div>
+      <div class="why-points">
+        <div class="why-pt rv right">
+          <span class="why-n">01</span>
+          <h3 class="why-pt-title">One offer, tested and scaled</h3>
+          <p class="why-pt-body">We don't spread your budget across a dozen ads hoping one lands. We build one tight, tested campaign around your best offer and scale what the data tells us to.</p>
+        </div>
+        <div class="why-pt rv right" data-d="1">
+          <span class="why-n">02</span>
+          <h3 class="why-pt-title">Real audience research, not broad targeting</h3>
+          <p class="why-pt-body">Your customers have specific behaviors and problems. We find them where they spend their time online and dial in the targeting before we scale a dollar of spend.</p>
+        </div>
+        <div class="why-pt rv right" data-d="2">
+          <span class="why-n">03</span>
+          <h3 class="why-pt-title">Active management, not "set and forget"</h3>
+          <p class="why-pt-body">We live in the account. We watch the numbers, catch problems before they compound, and make adjustments based on what's actually happening in your campaign.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS ── -->
+  <section id="results">
+    <div class="results-inner">
+      <div class="results-hdr">
+        <div>
+          <p class="slabel slabel-dark rv left" style="margin-bottom:22px;">Results</p>
+          <h2 class="results-hed rv up" data-d="1">
+            Numbers<br>from <em>the field.</em>
+          </h2>
+        </div>
+        <p class="results-note rv up" data-d="2">
+          Representative results from active client campaigns. Results vary by industry, offer, and budget.
+        </p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat rv up">
+          <div class="stat-num">
+            <span class="ctr" data-target="4.3" data-dec="1">0</span><span class="sfx">x</span>
+          </div>
+          <div class="stat-div"></div>
+          <p class="stat-lbl">Average ROAS</p>
+        </div>
+        <div class="stat rv up" data-d="1">
+          <div class="stat-num">
+            <span class="ctr" data-target="82" data-dec="0">0</span><span class="sfx">+</span>
+          </div>
+          <div class="stat-div"></div>
+          <p class="stat-lbl">Leads per month</p>
+        </div>
+        <div class="stat rv up" data-d="2">
+          <div class="stat-num">
+            <span class="ctr" data-target="30" data-dec="0">0</span><span class="sfx">d</span>
+          </div>
+          <div class="stat-div"></div>
+          <p class="stat-lbl">Avg. ramp to profitable</p>
+        </div>
+      </div>
+
+      <div class="testimonial rv up" data-d="1">
+        <p class="testimonial-txt">
+          "In the first month alone, 2x the amount of bookings we had every single month. We had to hire two people in Eugene and an additional person in Salem just to handle the volume. The results obviously speak for themselves -- it will be one of the easiest decisions you make."
+        </p>
+        <p class="testimonial-attr">— Molly, Valley Cleaners</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════════════ -->
+
+  <!-- SERVICES HERO -->
+  <section id="services-hero">
+    <div class="page-hero-inner">
+      <p class="slabel slabel-dark rv left">Our Services</p>
+      <h1 class="page-hed rv up" data-d="1">
+        What we do.<br><em>How it works.</em>
+      </h1>
+      <p class="page-sub rv up" data-d="2">
+        Meta Ads Management and Website Design -- two focused services, built for small businesses ready to grow. Start with one. Add the other when you're ready.
+      </p>
+      <div class="page-hero-rule rv up" data-d="3"></div>
+    </div>
+  </section>
+
+  <!-- PACKAGE OVERVIEW -->
+  <section id="package">
+    <div class="package-inner">
+      <div class="package-left">
+        <p class="slabel slabel-light rv left">Our Services</p>
+        <h2 class="pkg-hed rv up" data-d="1">
+          Two services.<br><em>One team.</em>
+        </h2>
+        <p class="pkg-body rv up" data-d="2">
+          We offer Meta Ads Management and Website Design as standalone services -- or together. Most clients start with ads. Some add a site when they're ready. Either way, you get the same focus, the same attention, and a team that's in it with you.
+        </p>
+      </div>
+      <div class="pkg-included rv up" data-d="2">
+        <div class="pkg-item">
+          <span class="pkg-item-num">01</span>
+          <div class="pkg-item-content">
+            <h3>Meta Ads Management</h3>
+            <p>Full-service campaign management — strategy, creative, targeting, optimization, and monthly reporting.</p>
+          </div>
+        </div>
+        <div class="pkg-item">
+          <span class="pkg-item-num">02</span>
+          <div class="pkg-item-content">
+            <h3>Website Design</h3>
+            <p>A custom, conversion-focused website built to match your brand and give your ads a destination that actually closes.</p>
+          </div>
+        </div>
+        <div class="pkg-item">
+          <span class="pkg-item-num">+</span>
+          <div class="pkg-item-content">
+            <h3>Strategy &amp; Communication</h3>
+            <p>Monthly reporting calls, campaign reviews, and direct access to your team. No ticketing system, no runaround.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- META ADS DEEP DIVE -->
+  <section class="service-deep alt" id="meta-ads">
+    <div class="deep-inner">
+      <div class="deep-header">
+        <div class="deep-header-left">
+          <p class="slabel slabel-dark rv left">Service 01</p>
+          <h2 class="deep-hed rv up" data-d="1">
+            Meta Ads<br><em>Management</em>
+          </h2>
+        </div>
+        <p class="deep-header-right rv up" data-d="2">
+          We build and run your Meta ad campaigns from start to finish. That means building the strategy, writing the copy, directing the creative, finding the right audience, and staying in the account every day to optimize what's working and cut what isn't.
+        </p>
+      </div>
+      <div class="deep-includes rv up">
+        <p class="deep-section-label">What's Included</p>
+        <div class="includes-grid">
+          <div class="include-item">
+            <span class="include-icon">01</span>
+            <h3 class="include-title">Campaign Strategy</h3>
+            <p class="include-body">We build the campaign architecture from scratch — offer selection, funnel structure, and budget allocation all mapped out before a dollar is spent.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">02</span>
+            <h3 class="include-title">Ad Copy &amp; Creative Direction</h3>
+            <p class="include-body">We write the scripts, headlines, and body copy. We also direct the creative — telling you exactly what to shoot and why it works.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">03</span>
+            <h3 class="include-title">Audience Research</h3>
+            <p class="include-body">Real targeting research — not just interest stacking. We find where your customers are, what they respond to, and how to reach them efficiently.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">04</span>
+            <h3 class="include-title">Ongoing Optimization</h3>
+            <p class="include-body">We're in the account consistently — watching metrics, cutting underperformers, scaling winners, and adjusting before problems compound.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">05</span>
+            <h3 class="include-title">Lead Form Setup</h3>
+            <p class="include-body">We build and optimize instant lead forms or landing page integrations to capture leads at the lowest possible friction.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">06</span>
+            <h3 class="include-title">Monthly Reporting</h3>
+            <p class="include-body">Plain-English reporting every month. Here's what we spent, here's what we got, here's what we're doing next. No jargon.</p>
+          </div>
+        </div>
+      </div>
+      <div class="deep-process rv up">
+        <p class="deep-section-label" style="margin-top: 56px; margin-bottom: 0;">How It Works</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-n">01</span>
+            <div class="step-content">
+              <h3>Onboarding &amp; Strategy Call</h3>
+              <p>We learn your business, your offer, your best customers, and what's worked or failed before. We set goals and build the campaign plan together.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">02</span>
+            <div class="step-content">
+              <h3>Campaign Build</h3>
+              <p>We set up the campaign structure, write the copy, build the audiences, and get creative assets ready. You review and approve before anything goes live.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">03</span>
+            <div class="step-content">
+              <h3>Launch &amp; Early Learning</h3>
+              <p>We launch with a controlled budget and let Meta's algorithm learn. The first 7–14 days are about data collection, not scaling.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">04</span>
+            <div class="step-content">
+              <h3>Optimize &amp; Scale</h3>
+              <p>Once we have signal, we double down on what's working and cut what isn't. We scale the budget as the numbers justify it — never before.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEBSITE DESIGN DEEP DIVE -->
+  <section class="service-deep base" id="website-design">
+    <div class="deep-inner">
+      <div class="deep-header">
+        <div class="deep-header-left">
+          <p class="slabel slabel-dark rv left">Service 02</p>
+          <h2 class="deep-hed rv up" data-d="1">
+            Website<br><em>Design</em>
+          </h2>
+        </div>
+        <p class="deep-header-right rv up" data-d="2">
+          A custom-designed, conversion-focused website built specifically for your business. Not a template, not a generic build — a site designed to turn your ad traffic into booked calls and paying customers.
+        </p>
+      </div>
+      <div class="deep-includes rv up">
+        <p class="deep-section-label">What's Included</p>
+        <div class="includes-grid">
+          <div class="include-item">
+            <span class="include-icon">01</span>
+            <h3 class="include-title">Custom Design</h3>
+            <p class="include-body">Built from scratch around your brand, offer, and audience. No cookie-cutter templates — every page is designed with a clear goal in mind.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">02</span>
+            <h3 class="include-title">Mobile-First Build</h3>
+            <p class="include-body">Your visitors are on their phones. We design mobile-first so the experience is fast, clean, and easy to act on from any screen size.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">03</span>
+            <h3 class="include-title">CTA-Driven Layout</h3>
+            <p class="include-body">Every page is structured to move visitors toward one clear action. No dead ends, no confusion — just a smooth path to your booking or contact form.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">04</span>
+            <h3 class="include-title">Brand Consistency</h3>
+            <p class="include-body">Your colors, fonts, tone, and messaging are consistent from your ads to your site. A unified look builds trust and lifts conversion rates.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">05</span>
+            <h3 class="include-title">Fast Load Times</h3>
+            <p class="include-body">Slow sites kill conversions. We keep builds lean and optimized so your pages load fast — especially on mobile connections.</p>
+          </div>
+          <div class="include-item">
+            <span class="include-icon">06</span>
+            <h3 class="include-title">Ad-Ready Landing Pages</h3>
+            <p class="include-body">Your website is built to match your ad campaigns — so visitors land on a page that continues the message they just saw and drives them to act.</p>
+          </div>
+        </div>
+      </div>
+      <div class="deep-process rv up">
+        <p class="deep-section-label" style="margin-top: 56px; margin-bottom: 0;">How It Works</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-n">01</span>
+            <div class="step-content">
+              <h3>Strategy &amp; Brief</h3>
+              <p>We start by understanding your offer, your audience, and your goal. We define the site structure, the primary CTA, and what success looks like.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">02</span>
+            <div class="step-content">
+              <h3>Design &amp; Copy</h3>
+              <p>We design every section and write conversion-focused copy — headlines, subheads, and CTAs that speak to your customer's pain and move them to act.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">03</span>
+            <div class="step-content">
+              <h3>Build &amp; Review</h3>
+              <p>We build the site and walk you through it before anything goes live. You give feedback, we refine, and we don't ship until it's right.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="step-n">04</span>
+            <div class="step-content">
+              <h3>Launch &amp; Connect</h3>
+              <p>We launch the site and connect it to your ad campaigns. Your traffic now has a destination built to convert — not just inform.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW THEY WORK TOGETHER -->
+  <section id="together">
+    <div class="together-inner">
+      <div class="together-left">
+        <p class="slabel slabel-light rv left">The Compound Effect</p>
+        <h2 class="together-hed rv up" data-d="1">
+          Ads get the lead.<br>Your site <em>earns the trust.</em>
+        </h2>
+        <p class="together-body rv up" data-d="2">
+          The ad reaches someone who's never heard of you. The website catches them when they go looking. When both are working, you're not leaving either type of buyer on the table.
+        </p>
+      </div>
+      <div class="together-points rv up" data-d="2">
+        <div class="together-pt">
+          <span class="together-pt-num">01</span>
+          <div class="together-pt-text">
+            <h3>Ads reach cold audiences</h3>
+            <p>Your ads find people who match your best customers -- people who didn't know you existed five minutes ago. We build the campaign around getting them to act.</p>
+          </div>
+        </div>
+        <div class="together-pt">
+          <span class="together-pt-num">02</span>
+          <div class="together-pt-text">
+            <h3>Your website closes the researchers</h3>
+            <p>Not everyone converts on the first touch. Some Google you after seeing the ad. A strong site turns that search into a lead -- without spending more on ads.</p>
+          </div>
+        </div>
+        <div class="together-pt">
+          <span class="together-pt-num">03</span>
+          <div class="together-pt-text">
+            <h3>Together they compound</h3>
+            <p>Every dollar you spend on ads works harder when there's a site behind it. Every visitor who finds your site organically is another lead the ads didn't have to pay for.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="faq-inner">
+      <p class="slabel slabel-dark rv left">Common Questions</p>
+      <div class="faq-list rv up" data-d="1">
+        <div class="faq-item">
+          <div class="faq-q">
+            How long until I see results?
+            <span class="faq-toggle">+</span>
+          </div>
+          <p class="faq-a">Most clients see their first leads within the first week of launch. Profitable campaigns typically take 30–60 days — the first month is about learning and optimization, not scaling. We'll be honest with you about the timeline from day one.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            What ad budget do I need?
+            <span class="faq-toggle">+</span>
+          </div>
+          <p class="faq-a">We recommend a minimum ad spend of $1,000–$1,500/month to give the algorithm enough data to optimize effectively. Less than that and you're fighting the learning phase. We'll talk through your specific situation on the strategy call.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Do I need to be on camera for the videos?
+            <span class="faq-toggle">+</span>
+          </div>
+          <p class="faq-a">For most small businesses, yes — and it's actually a huge advantage. People buy from people. Face-to-camera content outperforms faceless content on Meta almost every time. We make it easy: we write the scripts, you read them. No experience needed.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            What if I've run ads before and they didn't work?
+            <span class="faq-toggle">+</span>
+          </div>
+          <p class="faq-a">That's actually most of our clients. Failed ad campaigns are usually a strategy or creative problem, not a platform problem. We'll look at what you ran before, diagnose what went wrong, and build from there. Meta works — when the fundamentals are right.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            How is this different from other marketing agencies?
+            <span class="faq-toggle">+</span>
+          </div>
+          <p class="faq-a">We're small by design. We don't onboard dozens of clients and hand them to a junior account manager. You work directly with Joeden and Logan. We're focused exclusively on Meta — not trying to be everything to everyone. And we're honest when something isn't working, which isn't as common as it should be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════════ -->
+
+  <!-- ABOUT HERO -->
+  <section id="about-hero">
+    <div class="page-hero-inner">
+      <p class="slabel slabel-dark rv left">About Us</p>
+      <h1 class="page-hed rv up" data-d="1">
+        Built to help<br>small business <em>grow.</em>
+      </h1>
+      <p class="page-sub rv up" data-d="2">
+        Sower Creative is a two-person marketing agency focused on one thing: getting small businesses real results on Meta. We believe every dollar you invest should produce fruit.
+      </p>
+      <div class="page-hero-rule rv up" data-d="3"></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="story-inner">
+      <div class="story-left">
+        <p class="slabel slabel-dark rv left">Our Story</p>
+        <h2 class="story-hed rv up" data-d="1">
+          We started small.<br>On <em>purpose.</em>
+        </h2>
+      </div>
+      <div class="story-body rv up" data-d="1">
+        <p>
+          Sower Creative started with a simple observation: most small businesses either can't afford a big agency, or they've been burned by one that overpromised and underdelivered. <strong>We wanted to build something different.</strong>
+        </p>
+        <p>
+          We're not trying to manage a hundred clients. We take on a small number of businesses we genuinely believe in, and we pour everything into getting them results. That means tighter relationships, more accountability, and more care about whether your campaign is actually working.
+        </p>
+        <p>
+          The name comes from the parable of the sower — the idea that good seed, planted in the right soil, produces an extraordinary harvest. That's the work we do. We help you find your audience, craft your message, and plant it where it grows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section id="founders">
+    <div class="founders-inner">
+      <p class="slabel slabel-dark rv left">The Team</p>
+      <div class="founders-grid">
+        <div class="founder-card rv up">
+          <span class="founder-initial">J</span>
+          <h3 class="founder-name">Joeden Nelson</h3>
+          <span class="founder-role">Co-Founder</span>
+          <div class="founder-rule"></div>
+          <p class="founder-bio">
+            Joeden handles strategy, ad management, and client relationships. Before starting Sower Creative, he spent time studying what actually works in direct-response advertising: real campaigns with real spend behind them, not theory. He cares about the numbers, but more about the people behind them. Based in Oregon.
+          </p>
+        </div>
+        <div class="founder-card rv up" data-d="2">
+          <span class="founder-initial">L</span>
+          <h3 class="founder-name">Logan Wade</h3>
+          <span class="founder-role">Co-Founder</span>
+          <div class="founder-rule"></div>
+          <p class="founder-bio">
+            Logan leads video production and content. He has an eye for what works on social — what stops a scroll, what builds trust, what makes someone actually watch. He edits all client video content and works directly with Joeden to make sure every piece of content is built to support the ad strategy, not just fill a calendar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section id="values">
+    <div class="values-inner">
+      <div class="values-left">
+        <p class="slabel slabel-light rv left">What We Stand For</p>
+        <h2 class="values-hed rv up" data-d="1">
+          Faith.<br><em>Work. Results.</em>
+        </h2>
+        <p class="values-sub rv up" data-d="2">
+          Our faith shapes how we show up for clients. These aren't marketing buzzwords — they're the convictions we actually run the business by.
+        </p>
+      </div>
+      <div class="values-list">
+        <div class="value-item rv right">
+          <span class="value-n">01</span>
+          <h3 class="value-title">Stewardship</h3>
+          <p class="value-body">We treat your ad budget like it's our own money. Every dollar should have a purpose and produce a return. We won't spend it on experiments that don't ladder up to results, and we'll tell you plainly when something isn't working.</p>
+        </div>
+        <div class="value-item rv right" data-d="1">
+          <span class="value-n">02</span>
+          <h3 class="value-title">Integrity</h3>
+          <p class="value-body">We don't oversell results or hide bad news in a pretty report. If a campaign isn't performing, we say so — and we tell you exactly what we're doing about it. You'll always know where things stand.</p>
+        </div>
+        <div class="value-item rv right" data-d="2">
+          <span class="value-n">03</span>
+          <h3 class="value-title">Service</h3>
+          <p class="value-body">We're in this business because we want to see small businesses win. The people behind them have put everything into building something real. We don't take that lightly. When you succeed, we genuinely celebrate it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="cta-sec">
+    <div class="cta-inner">
+      <p class="slabel slabel-light rv left">Let's Talk Growth</p>
+      <h2 class="cta-hed rv up" data-d="1">
+        Ready to grow<br>your <em>client base?</em>
+      </h2>
+      <p class="cta-sub rv up" data-d="2">
+        Book a 30-minute strategy call. No pressure, no pitch deck. Just a real conversation about what's working and whether we're the right fit.
+      </p>
+      <div class="rv up" data-d="3">
+        <a href="book.html" class="btn btn-parch">Book a Free Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">Sower Creative</span>
+        <span class="footer-tag">Meta Ads + Website Design</span>
+      </div>
+      <nav class="footer-nav-links" aria-label="Footer">
+        <a href="#services" class="fl">Services</a>
+        <a href="#why" class="fl">About</a>
+        <a href="#why" class="fl">Why Us</a>
+        <a href="book.html" class="fl">Book a Call</a>
+        <a href="privacy.html" class="fl">Privacy Policy</a>
+        <a href="terms.html" class="fl">Terms of Service</a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+  </footer>
+
+</div><!-- /#main -->
+
+<script>
+  /* ── SPLASH ── */
+  const splash = document.getElementById('splash');
+  let splashDone = false;
+  function dismissSplash() {
+    if (splashDone) return;
+    splashDone = true;
+    document.body.style.overflow = '';
+    splash.classList.add('gone');
+    setTimeout(() => {
+      splash.remove();
+      document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('shown'));
+    }, 466);
+  }
+  document.body.style.overflow = 'hidden';
+  setTimeout(dismissSplash, 2800);
+  window.addEventListener('wheel',      dismissSplash, { passive: true, once: true });
+  window.addEventListener('touchstart', dismissSplash, { passive: true, once: true });
+  document.addEventListener('keydown',  dismissSplash, { once: true });
+  document.addEventListener('click',    dismissSplash, { once: true });
+
+  /* ── NAV ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('shown');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+  document.querySelectorAll('.rv').forEach(el => {
+    if (!el.closest('#hero')) observer.observe(el);
+  });
+
+  /* ── STAT COUNTERS ── */
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function runCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const dec    = parseInt(el.dataset.dec) || 0;
+    const dur    = 1190;
+    const t0     = performance.now();
+    const tick   = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const v = easeOut(p) * target;
+      el.textContent = dec > 0 ? v.toFixed(dec) : Math.round(v);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  const ctrObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        runCounter(e.target);
+        ctrObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.ctr').forEach(el => ctrObserver.observe(el));
+
+  /* ── FAQ ACCORDION ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

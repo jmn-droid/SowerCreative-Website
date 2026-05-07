@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Sower Creative</title>
+  <meta name="description" content="Sower Creative is a faith-driven marketing agency built by two founders who believe small businesses deserve real results. Meet Joeden and Logan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* Grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.036;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,245,233,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.16);
+      transition: padding 0.35s;
+    }
+    #nav.scrolled {
+      padding: 14px 60px;
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 0.09em;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+    .nav-wordmark em {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 11px 22px;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+    .nav-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      background: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 11px 28px;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+    }
+    .nav-cta:hover {
+      background: transparent;
+      color: var(--forest);
+    }
+
+    /* ── REVEAL SYSTEM ── */
+    .rv {
+      opacity: 0;
+      transition: opacity 0.60s ease;
+    }
+    .rv.shown { opacity: 1; }
+    .rv[data-d="1"] { transition-delay: 0.10s; }
+    .rv[data-d="2"] { transition-delay: 0.20s; }
+    .rv[data-d="3"] { transition-delay: 0.30s; }
+    .rv[data-d="4"] { transition-delay: 0.42s; }
+
+    /* Section label */
+    .slabel {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .slabel::before {
+      content: '';
+      display: block;
+      width: 26px;
+      height: 1px;
+      flex-shrink: 0;
+    }
+    .slabel-dark  { color: var(--gold); }
+    .slabel-dark::before  { background: var(--gold); opacity: 0.5; }
+    .slabel-light { color: var(--gold); }
+    .slabel-light::before { background: var(--gold); opacity: 0.45; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 54px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-forest { color: var(--parchment); background: var(--forest); }
+    .btn-forest:hover { background: #0d2619; transform: translateY(-2px); }
+    .btn-parch  { color: var(--forest);    background: var(--parchment); }
+    .btn-parch:hover  { background: var(--parch-mid); transform: translateY(-2px); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       PAGE HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #page-hero {
+      padding: 180px 60px 96px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 70% 30%, #EDE5CB 0%, transparent 52%),
+        radial-gradient(ellipse at 20% 85%, #E9E1C8 0%, transparent 48%);
+    }
+    .page-hero-inner { max-width: 1080px; margin: 0 auto; }
+    h1.page-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(4rem, 9vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin: 28px 0 36px;
+      max-width: 800px;
+    }
+    h1.page-hed em { font-style: italic; color: var(--gold); }
+    .page-sub {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.62;
+      max-width: 520px;
+    }
+    .page-hero-rule {
+      width: 1px;
+      height: 64px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin-top: 72px;
+      opacity: 0.3;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       STORY
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #story {
+      padding: 112px 60px;
+      background: var(--parchment);
+    }
+    .story-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .story-left .slabel { margin-bottom: 28px; }
+    h2.story-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.story-hed em { font-style: italic; color: var(--gold); }
+    .story-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .story-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.7;
+    }
+    .story-body p strong {
+      color: var(--forest);
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOUNDERS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #founders {
+      padding: 112px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 50% 50%, #EDE5CB 0%, transparent 60%);
+    }
+    .founders-inner { max-width: 1080px; margin: 0 auto; }
+    .founders-inner .slabel { margin-bottom: 56px; }
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .founder-card {
+      background: var(--parchment);
+      padding: 64px 52px;
+    }
+    .founder-initial {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 1.15;
+      color: var(--forest);
+      opacity: 0.12;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 1.05;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+    .founder-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .founder-rule {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.38;
+      margin-bottom: 24px;
+    }
+    .founder-bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.65;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       VALUES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #values {
+      padding: 112px 60px;
+      background: var(--forest);
+    }
+    .values-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .values-left {
+      position: sticky;
+      top: 120px;
+    }
+    .values-left .slabel { margin-bottom: 26px; }
+    h2.values-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      line-height: 1.1;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+    h2.values-hed em { font-style: italic; color: var(--gold); opacity: 0.85; }
+    .values-sub {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(250,245,233,0.45);
+      margin-top: 16px;
+    }
+
+    .values-list { display: flex; flex-direction: column; }
+    .value-item {
+      padding: 48px 0;
+      border-top: 1px solid rgba(250,245,233,0.1);
+    }
+    .value-item:last-child { border-bottom: 1px solid rgba(250,245,233,0.1); }
+    .value-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.52rem;
+      line-height: 1.25;
+      color: var(--parchment);
+      margin-bottom: 13px;
+    }
+    .value-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(250,245,233,0.5);
+    }
+    .value-verse {
+      margin-top: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #cta-sec {
+      padding: 140px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 50% 60%, #EDE5CB 0%, transparent 55%);
+      text-align: center;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-inner .slabel { justify-content: center; margin-bottom: 26px; }
+    h2.cta-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      color: var(--forest);
+      margin-bottom: 26px;
+      letter-spacing: -0.01em;
+    }
+    h2.cta-hed em { font-style: italic; color: var(--gold); }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.55;
+      max-width: 420px;
+      margin: 0 auto 48px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer { background: #0c0c0c; padding: 72px 60px 56px; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(250,245,233,0.055);
+      margin-bottom: 34px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 9px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 27px;
+      letter-spacing: 0.07em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links { display: flex; gap: 38px; align-items: center; flex-wrap: wrap; }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy { font-size: 11px; color: rgba(250,245,233,0.17); letter-spacing: 0.03em; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 900px) {
+      .values-inner { grid-template-columns: 1fr; gap: 48px; }
+      .values-left { position: static; }
+      .story-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      #nav, #nav.scrolled { padding: 18px 24px; }
+      .nav-links { gap: 20px; }
+      .nav-link { display: none; }
+      #page-hero { padding: 130px 24px 72px; }
+      #story, #founders, #values, #cta-sec { padding: 80px 24px; }
+      .founders-grid { grid-template-columns: 1fr; }
+      .founder-card { padding: 44px 28px; }
+      footer, .footer-top { padding-left: 24px; padding-right: 24px; }
+      .footer-top { flex-direction: column; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+    <div class="nav-links">
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="book.html" class="nav-cta">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section id="page-hero">
+    <div class="page-hero-inner">
+      <p class="slabel slabel-dark rv left">About Us</p>
+      <h1 class="page-hed rv up" data-d="1">
+        Built to help<br>small business <em>grow.</em>
+      </h1>
+      <p class="page-sub rv up" data-d="2">
+        Sower Creative is a two-person marketing agency focused on one thing: getting small businesses real results on Meta. We believe every dollar you invest should produce fruit.
+      </p>
+      <div class="page-hero-rule rv up" data-d="3"></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="story-inner">
+      <div class="story-left">
+        <p class="slabel slabel-dark rv left">Our Story</p>
+        <h2 class="story-hed rv up" data-d="1">
+          We started small.<br>On <em>purpose.</em>
+        </h2>
+      </div>
+      <div class="story-body rv up" data-d="1">
+        <p>
+          Sower Creative started with a simple observation: most small businesses either can't afford a big agency, or they've been burned by one that overpromised and underdelivered. <strong>We wanted to build something different.</strong>
+        </p>
+        <p>
+          We're not trying to manage a hundred clients. We take on a small number of businesses we genuinely believe in, and we pour everything into getting them results. That means tighter relationships, more accountability, and more care about whether your campaign is actually working.
+        </p>
+        <p>
+          The name comes from the parable of the sower — the idea that good seed, planted in the right soil, produces an extraordinary harvest. That's the work we do. We help you find your audience, craft your message, and plant it where it grows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section id="founders">
+    <div class="founders-inner">
+      <p class="slabel slabel-dark rv left">The Team</p>
+      <div class="founders-grid">
+        <div class="founder-card rv up">
+          <span class="founder-initial">J</span>
+          <h3 class="founder-name">Joeden Nelson</h3>
+          <span class="founder-role">Founder</span>
+          <div class="founder-rule"></div>
+          <p class="founder-bio">
+            Joeden handles strategy, ad management, and client relationships. Before starting Sower Creative, he spent time studying what actually works in direct-response advertising: real campaigns with real spend behind them, not theory. He cares about the numbers, but more about the people behind them. Based in Oregon.
+          </p>
+        </div>
+        <div class="founder-card rv up" data-d="2">
+          <span class="founder-initial">L</span>
+          <h3 class="founder-name">Logan Wade</h3>
+          <span class="founder-role">Co-Founder</span>
+          <div class="founder-rule"></div>
+          <p class="founder-bio">
+            Logan leads video production and content. He has an eye for what works on social — what stops a scroll, what builds trust, what makes someone actually watch. He edits all client video content and works directly with Joeden to make sure every piece of content is built to support the ad strategy, not just fill a calendar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section id="values">
+    <div class="values-inner">
+      <div class="values-left">
+        <p class="slabel slabel-light rv left">What We Stand For</p>
+        <h2 class="values-hed rv up" data-d="1">
+          Faith.<br><em>Work. Results.</em>
+        </h2>
+        <p class="values-sub rv up" data-d="2">
+          Our faith shapes how we show up for clients. These aren't marketing buzzwords — they're the convictions we actually run the business by.
+        </p>
+      </div>
+      <div class="values-list">
+        <div class="value-item rv right">
+          <span class="value-n">01</span>
+          <h3 class="value-title">Stewardship</h3>
+          <p class="value-body">We treat your ad budget like it's our own money. Every dollar should have a purpose and produce a return. We won't spend it on experiments that don't ladder up to results, and we'll tell you plainly when something isn't working.</p>
+        </div>
+        <div class="value-item rv right" data-d="1">
+          <span class="value-n">02</span>
+          <h3 class="value-title">Integrity</h3>
+          <p class="value-body">We don't oversell results or hide bad news in a pretty report. If a campaign isn't performing, we say so — and we tell you exactly what we're doing about it. You'll always know where things stand.</p>
+        </div>
+        <div class="value-item rv right" data-d="2">
+          <span class="value-n">03</span>
+          <h3 class="value-title">Service</h3>
+          <p class="value-body">We're in this business because we want to see small businesses win. The people behind them have put everything into building something real. We don't take that lightly. When you succeed, we genuinely celebrate it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-sec">
+    <div class="cta-inner">
+      <p class="slabel slabel-dark rv left">Work With Us</p>
+      <h2 class="cta-hed rv up" data-d="1">
+        Let's build something<br><em>worth growing.</em>
+      </h2>
+      <p class="cta-sub rv up" data-d="2">
+        30-minute strategy call. No pressure. Just a real conversation about your business and whether we're the right fit.
+      </p>
+      <div class="rv up" data-d="3">
+        <a href="book.html" class="btn btn-forest">Book a Free Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">Sower Creative</span>
+        <span class="footer-tag">Meta Ads + Organic Content</span>
+      </div>
+      <nav class="footer-nav-links" aria-label="Footer">
+        <a href="index.html" class="fl">Home</a>
+        <a href="services.html" class="fl">Services</a>
+        <a href="about.html" class="fl">About</a>
+        <a href="book.html" class="fl">Book a Call</a>
+      </nav>
+    </div>
+    <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* Nav scroll */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('shown');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+    /* Auto-reveal page hero */
+    window.addEventListener('load', () => {
+      document.querySelectorAll('#page-hero .rv').forEach((el, i) => {
+        setTimeout(() => el.classList.add('shown'), 100 + i * 110);
+      });
+    });
+  </script>
+
+</body>
+</html>
