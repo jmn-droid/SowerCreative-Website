@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Free Website Audit | Sower Creative</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #1B4332;
+      --fern: #40916C;
+      --gold: #D4A017;
+      --parchment: #FAF5E9;
+      --parchment-mid: #F0EAD6;
+      --near-black: #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--near-black);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ---- TOP BAR ---- */
+    .top-bar {
+      background: var(--near-black);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .top-bar-left {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    .top-bar-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+
+    .top-bar-phone:hover { opacity: 0.8; }
+
+    .top-bar-phone svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 480px) {
+      .top-bar-left { display: none; }
+      .top-bar { justify-content: center; }
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--forest);
+      color: var(--parchment);
+      padding: 64px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.018) 60px,
+        rgba(255,255,255,0.018) 61px
+      );
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero .eyebrow {
+      color: rgba(250,245,233,0.38);
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-callout {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.25);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.18s;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--parchment);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+
+    .hero-headline em { color: var(--gold); }
+
+    .hero-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+
+    .hero-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(250,245,233,0.72);
+      line-height: 1.4;
+    }
+
+    .hero-bullets li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      border-radius: 50%;
+      background: rgba(212,160,23,0.15);
+      border: 1.5px solid rgba(212,160,23,0.5);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolyline points='3.5,8 6.5,11 12.5,5' fill='none' stroke='%23D4A017' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: cover;
+    }
+
+    .hero-phone-mobile {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(250,245,233,0.55);
+      margin-top: 4px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+
+    .hero-phone-mobile a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ---- HERO FORM CARD ---- */
+    .hero-form-card {
+      background: var(--parchment);
+      border-radius: 3px;
+      padding: 36px 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.35s;
+    }
+
+    .hero-form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .hero-form-sub {
+      font-size: 13px;
+      color: rgba(26,26,26,0.45);
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .form-group { margin-bottom: 14px; }
+
+    .form-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.38);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      display: block;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1.5px solid rgba(27,67,50,0.13);
+      color: var(--near-black);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input::placeholder { color: rgba(26,26,26,0.26); }
+
+    .form-input:focus {
+      border-color: var(--fern);
+      box-shadow: 0 0 0 3px rgba(64,145,108,0.1);
+    }
+
+    .btn-forest {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      background: var(--forest);
+      color: var(--parchment);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-forest:hover { background: #163829; transform: translateY(-1px); }
+    .btn-forest:active { transform: translateY(0); }
+
+    .form-reassurance {
+      font-size: 11px;
+      color: rgba(26,26,26,0.38);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ---- THANK YOU ---- */
+    .thankyou-state { display: none; text-align: center; padding: 24px 0; }
+    .thankyou-state.visible { display: block; }
+
+    .thankyou-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--forest);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thankyou-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--parchment);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .thankyou-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .thankyou-sub {
+      font-size: 13px;
+      color: rgba(26,26,26,0.5);
+      line-height: 1.7;
+    }
+
+    /* ---- TRUST BAR ---- */
+    .trust-bar {
+      background: var(--near-black);
+      padding: 14px 24px;
+    }
+
+    .trust-bar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-item {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 4px 14px;
+    }
+
+    .trust-sep { color: var(--gold); font-size: 12px; opacity: 0.4; }
+
+    /* ---- PROBLEM ---- */
+    .problem {
+      background: var(--parchment);
+      padding: 96px 24px;
+    }
+
+    .problem-inner { max-width: 720px; margin: 0 auto; }
+
+    .problem .eyebrow { color: var(--gold); }
+
+    .problem-pull {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-bottom: 28px;
+      padding-left: 28px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .problem-body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(26,26,26,0.65);
+      max-width: 580px;
+      padding-left: 31px;
+    }
+
+    /* ---- VALUE STACK ---- */
+    .value-stack {
+      background: var(--forest);
+      padding: 96px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-stack::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.012) 60px,
+        rgba(255,255,255,0.012) 61px
+      );
+      pointer-events: none;
+    }
+
+    .value-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .value-stack .eyebrow { color: rgba(250,245,233,0.38); }
+
+    .value-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--parchment);
+      margin-bottom: 52px;
+      line-height: 1.1;
+    }
+
+    .value-list { list-style: none; }
+
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(250,245,233,0.07);
+    }
+
+    .value-item:last-child { border-bottom: 1px solid rgba(250,245,233,0.07); }
+
+    .value-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      opacity: 0.7;
+      line-height: 1;
+      min-width: 32px;
+      padding-top: 1px;
+    }
+
+    .value-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .value-desc {
+      font-size: 14px;
+      color: rgba(250,245,233,0.5);
+      line-height: 1.65;
+    }
+
+    .value-callout {
+      margin-top: 52px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid rgba(212,160,23,0.28);
+      padding: 16px 24px;
+      border-radius: 2px;
+    }
+
+    .value-callout span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- HOW IT WORKS ---- */
+    .how {
+      background: var(--parchment-mid);
+      padding: 96px 24px;
+    }
+
+    .how-inner { max-width: 720px; margin: 0 auto; }
+
+    .how .eyebrow { color: rgba(26,26,26,0.32); }
+
+    .how-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin-bottom: 52px;
+      line-height: 1.1;
+    }
+
+    .step {
+      display: flex;
+      gap: 28px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(27,67,50,0.1);
+    }
+
+    .step:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      opacity: 0.65;
+      line-height: 1;
+      min-width: 32px;
+      padding-top: 2px;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: rgba(26,26,26,0.6);
+      line-height: 1.65;
+    }
+
+    /* ---- FAQ ---- */
+    .faq {
+      background: var(--parchment);
+      padding: 96px 24px;
+    }
+
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+
+    .faq .eyebrow { color: var(--gold); }
+
+    .faq-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin-bottom: 52px;
+      line-height: 1.1;
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(27,67,50,0.1);
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-question-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--forest);
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(27,67,50,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .faq-icon svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--forest);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-icon { background: var(--gold); border-color: var(--gold); }
+    .faq-item.open .faq-icon svg { stroke: var(--forest); transform: rotate(45deg); }
+
+    .faq-answer {
+      font-size: 14px;
+      color: rgba(26,26,26,0.65);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
+
+    /* ---- BOTTOM CTA ---- */
+    .bottom-cta {
+      background: var(--forest);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.012) 60px,
+        rgba(255,255,255,0.012) 61px
+      );
+      pointer-events: none;
+    }
+
+    .bottom-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .bottom-cta-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--parchment);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .bottom-cta-sub {
+      font-size: 15px;
+      color: rgba(250,245,233,0.6);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .bottom-cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover { background: #c4910d; transform: translateY(-1px); }
+
+    .cta-or {
+      font-size: 12px;
+      color: rgba(250,245,233,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cta-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: rgba(250,245,233,0.75);
+      font-size: 15px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .cta-phone:hover { color: var(--gold); }
+
+    .cta-phone svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      padding: 24px;
+      text-align: center;
+      background: var(--near-black);
+    }
+
+    .site-footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- REVEAL ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ---- KEYFRAMES ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- MOBILE ---- */
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-phone-mobile { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 48px 20px 56px; }
+      .trust-item { padding: 4px 10px; font-size: 9px; }
+      .problem { padding: 72px 20px; }
+      .problem-pull { padding-left: 20px; }
+      .problem-body { padding-left: 23px; }
+      .value-stack { padding: 72px 20px; }
+      .how { padding: 72px 20px; }
+      .faq { padding: 72px 20px; }
+      .bottom-cta { padding: 64px 20px; }
+      .hero-form-card { padding: 28px 20px; }
+      .bottom-cta-actions { flex-direction: column; gap: 12px; }
+      .btn-gold { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span class="top-bar-left">Sower Creative | Web Design for Service Businesses</span>
+    <a href="tel:5416029074" class="top-bar-phone">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (541) 602-9074
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <!-- Left: copy -->
+      <div class="hero-copy">
+        <p class="eyebrow">Sower Creative | Web Design for Service Businesses</p>
+        <p class="hero-callout">No website? Bad website? Same problem.</p>
+        <h1 class="hero-headline">Your competitor isn't better at the job. They just have <em>a better website.</em></h1>
+        <ul class="hero-bullets">
+          <li>Professional website built for your trade</li>
+          <li>SEO included so Google can find you</li>
+          <li>Live in 3 days. Starting at $900.</li>
+        </ul>
+        <p class="hero-phone-mobile">Prefer to call? <a href="tel:5416029074">(541) 602-9074</a></p>
+      </div>
+
+      <!-- Right: form card -->
+      <div class="hero-form-card">
+        <div id="heroFormState">
+          <h2 class="hero-form-title">Get Your Free Website Audit</h2>
+          <p class="hero-form-sub">No commitment. We'll reach out within 24 hours.</p>
+
+          <!-- TODO: Wire to GoHighLevel or email endpoint -->
+          <form id="leadForm" action="#" method="post" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="name">Your Name</label>
+              <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="trade">Your Trade / What do you do?</label>
+              <input class="form-input" type="text" id="trade" name="trade" placeholder="e.g. Roofing, Landscaping, Plumbing" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <button type="submit" class="btn-forest">Get My Free Website Audit</button>
+            <p class="form-reassurance">No commitment. We'll reach out within 24 hours.</p>
+          </form>
+        </div>
+
+        <div class="thankyou-state" id="thankyouState">
+          <div class="thankyou-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h2 class="thankyou-headline">We'll be in touch soon.</h2>
+          <p class="thankyou-sub">Check your phone. We typically reach out within a few hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <span class="trust-item">Starting at $900</span>
+      <span class="trust-sep">&middot;</span>
+      <span class="trust-item">Live in 3 Days</span>
+      <span class="trust-sep">&middot;</span>
+      <span class="trust-item">SEO Included</span>
+      <span class="trust-sep">&middot;</span>
+      <span class="trust-item">Mobile-Optimized</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="problem-inner reveal">
+      <p class="eyebrow">The Problem</p>
+      <p class="problem-pull">"Someone Googles your trade. Your competitor shows up first. They get the call. You never knew it happened."</p>
+      <p class="problem-body">If you don't have a website, you're invisible. You're not losing the job. You're not even in the running. The customer never finds you at all.<br><br>If you have a site but it's slow, outdated, or hard to use on a phone, it's almost worse. They found you, took one look, and left. You showed up and still lost the job.<br><br>Your competitor isn't better at the work. They just have a better website. We fix both.</p>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section class="value-stack">
+    <div class="value-inner reveal">
+      <p class="eyebrow">What's Included</p>
+      <h2 class="value-headline">Everything you need.<br>Nothing you don't.</h2>
+      <ul class="value-list">
+        <li class="value-item">
+          <span class="value-num">1</span>
+          <div>
+            <p class="value-title">Professionally built website</p>
+            <p class="value-desc">Custom designed for your trade. Not a template. Not a drag-and-drop builder.</p>
+          </div>
+        </li>
+        <li class="value-item">
+          <span class="value-num">2</span>
+          <div>
+            <p class="value-title">Technical SEO included</p>
+            <p class="value-desc">So Google can actually find you when someone searches your trade in your area.</p>
+          </div>
+        </li>
+        <li class="value-item">
+          <span class="value-num">3</span>
+          <div>
+            <p class="value-title">Lead capture form</p>
+            <p class="value-desc">A contact form that captures inquiries and routes them straight to your phone.</p>
+          </div>
+        </li>
+        <li class="value-item">
+          <span class="value-num">4</span>
+          <div>
+            <p class="value-title">Mobile-optimized</p>
+            <p class="value-desc">Looks sharp on every device. Most of your leads are finding you on their phone.</p>
+          </div>
+        </li>
+        <li class="value-item">
+          <span class="value-num">5</span>
+          <div>
+            <p class="value-title">Ongoing maintenance</p>
+            <p class="value-desc">We handle updates, security, and uptime. You never think about it again.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="value-callout">
+        <span>Starting at $900 &nbsp;&middot;&nbsp; Landing page live in 3 days &nbsp;&middot;&nbsp; Full site in 10</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner reveal">
+      <p class="eyebrow">Common Questions</p>
+      <h2 class="faq-headline">Answers before you ask.</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">I already have a website. Can you rebuild it instead of starting from scratch?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">Yes, rebuilds are a big part of what we do. We take what you have, keep what's working (your domain, your content, your photos if you have them), and rebuild the whole thing from scratch in a way that actually converts. Most of our clients with existing sites see an immediate difference in how their site performs just from having it load faster and work properly on mobile.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">What if I don't know what I want my site to look like?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">You don't need to have a vision. Just send us a website you like: a competitor, someone in your industry, anyone whose site feels right to you. We take that as the foundation and rebuild it in your brand. No weeks of back-and-forth trying to explain what you want.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">Do I need to already have a domain?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">No. If you don't have a domain yet, write "need help" on the intake form and we'll walk you through getting one. It typically costs $10–15/year and takes about 10 minutes to set up.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">What does "technical SEO" actually mean?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">It means your site is set up so Google can find and read it correctly. We write your page title, meta description, image alt text, and submit your site to Google Search Console. It won't rank overnight, but it's the foundation everything else builds on.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">What if I don't like the first draft?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">Nothing goes live without your approval. You review the site first, give us feedback, and we revise it. We don't launch until you're happy with it.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span class="faq-question-text">When does the 3-day clock actually start?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+        </button>
+        <p class="faq-answer">When we have everything we need from you: your completed intake form, logo, and brand direction. The clock doesn't start when you fill out the quote form. We'll confirm the start date with you after we receive your content.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <div class="bottom-cta-inner reveal">
+      <h2 class="bottom-cta-headline">Ready to stop losing jobs to a worse contractor with a better website?</h2>
+      <p class="bottom-cta-sub">Fill out the form above or give us a call. We'll take it from there.</p>
+      <div class="bottom-cta-actions">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn-gold">Get My Free Website Audit</a>
+        <span class="cta-or">or</span>
+        <a href="tel:5416029074" class="cta-phone">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (541) 602-9074
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Sower Creative</p>
+  </footer>
+
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = {
+        name: document.getElementById('name').value,
+        trade: document.getElementById('trade').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        source: 'Ad Landing Page'
+      };
+      fetch('https://services.leadconnectorhq.com/hooks/5Y0Jf0mLBFALgKRlteH3/webhook-trigger/sqP35FvTCbaGMAfhJNAL', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).finally(function() {
+        document.getElementById('heroFormState').style.display = 'none';
+        document.getElementById('thankyouState').classList.add('visible');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
