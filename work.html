@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Work — Sower Creative</title>
-  <meta name="description" content="Real ad campaigns. Real results. See what Sower Creative has built for small businesses.">
+  <meta name="description" content="Real work. Real results. See what Sower Creative has built for small businesses -- Meta ads and custom websites.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -153,6 +153,43 @@
       color: #444;
       max-width: 520px;
     }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CATEGORY SELECTOR
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .category-selector {
+      padding: 0 60px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .category-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .category-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 14px 32px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--forest);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .category-btn:hover {
+      background: var(--parch-mid);
+    }
+    .category-btn.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+    .category-section { display: none; }
+    .category-section.active { display: block; }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        CLIENT SELECTOR
@@ -351,6 +388,136 @@
       color: #888;
     }
 
+    /* ── Website Panel ── */
+    .website-panel-intro {
+      margin-bottom: 60px;
+    }
+    .website-panel-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .website-panel-intro p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      max-width: 560px;
+    }
+    .site-screenshots {
+      margin-bottom: 60px;
+    }
+    .screenshots-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .screenshot-card {
+      background: var(--parch-mid);
+      overflow: hidden;
+    }
+    .screenshot-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .screenshot-placeholder {
+      aspect-ratio: 16/10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--parch-mid);
+      border: 2px dashed rgba(27,67,50,0.18);
+    }
+    .screenshot-placeholder.mobile-placeholder {
+      aspect-ratio: 9/16;
+    }
+    .screenshot-placeholder span {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(27,67,50,0.35);
+    }
+    .site-cta-wrap {
+      margin-top: 8px;
+    }
+    .site-cta {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      background: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
+    }
+    .site-cta.live {
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .site-cta.live:hover {
+      background: transparent;
+      color: var(--forest);
+    }
+    .site-cta-note {
+      display: inline-block;
+      margin-left: 16px;
+      font-size: 11px;
+      color: #999;
+      font-style: italic;
+    }
+    .what-we-built {
+      margin-top: 56px;
+    }
+    .what-we-built-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .built-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .built-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--forest);
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 8px 18px;
+    }
+
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        FOOTER
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -408,12 +575,14 @@
       #nav { padding: 16px 24px; }
       .nav-buttons .nav-btn { display: none; }
       .page-header { padding: 120px 24px 60px; }
+      .category-selector { padding: 0 24px 40px; }
       .client-selector { padding: 0 24px 48px; }
       .divider { margin: 0 24px; }
       .client-panel { padding: 48px 24px 80px; }
       .videos-grid { grid-template-columns: 1fr; }
       .results-grid { grid-template-columns: repeat(2, 1fr); }
       .testimonial-section { padding: 28px 28px; }
+      .screenshot-grid { grid-template-columns: 1fr; }
       footer { padding: 48px 24px 32px; }
       .footer-top { flex-direction: column; gap: 32px; }
     }
@@ -426,35 +595,47 @@
 <nav id="nav">
   <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
   <div class="nav-buttons">
-    <a href="index.html#services" class="nav-btn">Services</a>
     <a href="about.html" class="nav-btn">About</a>
+    <a href="meta-ads.html" class="nav-btn">Meta Ads</a>
+    <a href="web-design.html" class="nav-btn">Web Design</a>
     <a href="work.html" class="nav-btn active">Our Work</a>
-    <a href="book.html" class="nav-btn-cta">Book a Call</a>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <header class="page-header">
   <p class="slabel">Portfolio</p>
-  <h1>Real ads.<br>Real results.</h1>
-  <p>A look inside the campaigns we've built -- what the ads look like, and how they performed.</p>
+  <h1>Real work.<br>Real results.</h1>
+  <p>A look inside what we've built -- Meta ad campaigns and custom websites, and how they performed.</p>
 </header>
 
-<!-- CLIENT SELECTOR -->
-<div class="client-selector">
-  <p class="selector-label">Select a client</p>
-  <div class="client-tabs">
-    <button class="client-tab active" data-target="valley-cleaners">Valley Cleaners</button>
-    <button class="client-tab placeholder" disabled>More clients coming soon</button>
+<!-- CATEGORY SELECTOR -->
+<div class="category-selector">
+  <div class="category-tabs">
+    <button class="category-btn active" data-category="meta-ads">Meta Ads</button>
+    <button class="category-btn" data-category="website-design">Website Design</button>
   </div>
 </div>
 
-<hr class="divider">
-
 <!-- ═══════════════════════════════
-     PANEL: VALLEY CLEANERS
+     CATEGORY: META ADS
 ═══════════════════════════════ -->
-<div class="client-panel active" id="valley-cleaners">
+<div class="category-section active" id="cat-meta-ads">
+
+  <!-- Client tabs -->
+  <div class="client-selector">
+    <p class="selector-label">Select a client</p>
+    <div class="client-tabs">
+      <button class="client-tab active" data-target="valley-cleaners">Valley Cleaners</button>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────
+       PANEL: VALLEY CLEANERS
+  ───────────────────────────── -->
+  <div class="client-panel active" id="valley-cleaners">
 
   <!-- Intro -->
   <div class="panel-intro">
@@ -468,7 +649,7 @@
     <div class="video-card">
       <div class="video-wrap">
         <iframe
-          src="https://drive.google.com/file/d/13kbr_9eQ-se1Q4qIOMKjnsOuRX4iEjx-/preview"
+          src="https://drive.google.com/file/d/1V5_y5lCnXh-Gw4O00tsl1X8IvQzZCNpp/preview"
           allow="autoplay"
           allowfullscreen>
         </iframe>
@@ -478,12 +659,22 @@
     <div class="video-card">
       <div class="video-wrap">
         <iframe
-          src="https://drive.google.com/file/d/1pgs6NVg1Qf96Z-mXKt1F1tLnVHoDO7bE/preview"
+          src="https://drive.google.com/file/d/1xcLUNQHl-0OTB5eoqbuqNgb0C56S3X1j/preview"
           allow="autoplay"
           allowfullscreen>
         </iframe>
       </div>
       <p class="video-caption">Ad 02 — Valley Cleaners</p>
+    </div>
+    <div class="video-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1b99EVxdVtOCtNFlo6K-2CvGlQPZtm4mb/preview"
+          allow="autoplay"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ad 03 — Valley Cleaners Retargeting</p>
     </div>
   </div>
 
@@ -520,7 +711,65 @@
     <p class="testimonial-attr">-- Molly, Valley Cleaners</p>
   </div>
 
-</div>
+  </div><!-- /.client-panel#valley-cleaners -->
+
+</div><!-- /.category-section#cat-meta-ads -->
+
+<!-- ═══════════════════════════════
+     CATEGORY: WEBSITE DESIGN
+═══════════════════════════════ -->
+<div class="category-section" id="cat-website-design">
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────
+       PANEL: MULTI CONTRACTING
+  ───────────────────────────── -->
+  <div class="client-panel active" id="multi-contracting" style="display:block;">
+
+    <!-- Intro -->
+    <div class="website-panel-intro">
+      <h2>Multi Contracting</h2>
+      <p>Multi-trade general contractor based in Eugene, OR -- residential and commercial. We built a conversion-focused site to match their brand and support their expansion into Florence and Cottage Grove.</p>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="site-screenshots">
+      <p class="screenshots-label">The Site</p>
+      <div class="screenshot-grid">
+        <!-- TODO: Replace with actual desktop screenshot once site is live -->
+        <div class="screenshot-placeholder">
+          <span>Desktop screenshot</span>
+          <span>Coming soon</span>
+        </div>
+        <!-- TODO: Replace with actual mobile screenshot at 375px once site is live -->
+        <div class="screenshot-placeholder mobile-placeholder">
+          <span>Mobile</span>
+          <span>375px</span>
+        </div>
+      </div>
+      <div class="site-cta-wrap">
+        <!-- TODO: Add live URL and add class="site-cta live" once site is live -->
+        <a href="#" class="site-cta" aria-disabled="true">View Live Site</a>
+        <span class="site-cta-note">Live site coming soon</span>
+      </div>
+    </div>
+
+    <!-- What We Built -->
+    <div class="what-we-built">
+      <p class="what-we-built-label">What We Built</p>
+      <div class="built-list">
+        <span class="built-tag">Brand System</span>
+        <span class="built-tag">Multi-Page Site</span>
+        <span class="built-tag">Mobile-First Layout</span>
+        <span class="built-tag">Fast Load</span>
+        <span class="built-tag">Custom Logo</span>
+      </div>
+    </div>
+
+  </div><!-- /.client-panel#multi-contracting -->
+
+</div><!-- /.category-section#cat-website-design -->
 
 <!-- FOOTER -->
 <footer>
@@ -530,8 +779,10 @@
       <span class="footer-tag">Meta Ads + Website Design</span>
     </div>
     <nav class="footer-nav-links" aria-label="Footer">
-      <a href="index.html#services" class="fl">Services</a>
+      <a href="index.html" class="fl">Home</a>
       <a href="about.html" class="fl">About</a>
+      <a href="meta-ads.html" class="fl">Meta Ads</a>
+      <a href="web-design.html" class="fl">Web Design</a>
       <a href="work.html" class="fl">Our Work</a>
       <a href="book.html" class="fl">Book a Call</a>
       <a href="privacy.html" class="fl">Privacy Policy</a>
@@ -542,8 +793,22 @@
 </footer>
 
 <script>
-  /* Client tab switching */
-  const tabs = document.querySelectorAll('.client-tab:not(.placeholder)');
+  /* Category switching */
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const categorySections = document.querySelectorAll('.category-section');
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      categorySections.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById('cat-' + btn.dataset.category);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  /* Client tab switching (Meta Ads) */
+  const tabs = document.querySelectorAll('.client-tab');
   const panels = document.querySelectorAll('.client-panel');
 
   tabs.forEach(tab => {

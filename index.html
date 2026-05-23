@@ -334,6 +334,21 @@
       opacity: 0.55;
       flex-shrink: 0;
     }
+    .svc-link {
+      display: inline-block;
+      margin-top: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(27,67,50,0.28);
+      padding-bottom: 4px;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .svc-link:hover { color: var(--gold); border-color: var(--gold); }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        WHY IT WORKS
@@ -1249,8 +1264,9 @@
 <nav id="nav">
   <a href="#hero" class="nav-wordmark">Sower <em>Creative</em></a>
   <div class="nav-buttons">
-    <a href="#services" class="nav-btn">Services</a>
     <a href="about.html" class="nav-btn">About</a>
+    <a href="meta-ads.html" class="nav-btn">Meta Ads</a>
+    <a href="web-design.html" class="nav-btn">Web Design</a>
     <a href="work.html" class="nav-btn">Our Work</a>
   </div>
 </nav>
@@ -1265,10 +1281,10 @@
     <div class="hero-inner">
       <p class="slabel slabel-dark rv left">Meta Ads + Website Design</p>
       <h1 class="hero-hed rv up" data-d="1">
-        Plant the seed.<br><em>Harvest the leads.</em>
+        We sow.<br><em>You reap.</em>
       </h1>
       <p class="hero-sub rv up" data-d="2">
-        We build and manage Meta ad campaigns for small businesses that are serious about growth. More leads, better clients, real results.
+        We build and manage Meta ad campaigns and custom websites for small businesses that are serious about growth. More leads, better clients, real results.
       </p>
       <a href="book.html" class="btn btn-forest rv up" data-d="3">Book a Free Call</a>
       <div class="scroll-indicator rv up" data-d="4"></div>
@@ -1289,27 +1305,15 @@
           <span class="svc-num">01</span>
           <h2 class="svc-title">Meta Ads<br>Management</h2>
           <div class="svc-rule"></div>
-          <p class="svc-body">Targeted campaigns built from the ground up. We handle strategy, creative direction, ad copy, audience research, and ongoing optimization. Every dollar working toward a real customer.</p>
-          <ul class="svc-items">
-            <li>Campaign strategy &amp; setup</li>
-            <li>Ad creative &amp; copy</li>
-            <li>Audience research &amp; targeting</li>
-            <li>Ongoing optimization</li>
-            <li>Monthly performance reports</li>
-          </ul>
+          <p class="svc-body">Targeted campaigns built from the ground up. Strategy, creative, audience research, and ongoing optimization -- every dollar working toward a real customer.</p>
+          <a href="meta-ads.html" class="svc-link">Learn more</a>
         </div>
         <div class="svc rv up" data-d="2">
           <span class="svc-num">02</span>
           <h2 class="svc-title">Website<br>Design</h2>
           <div class="svc-rule"></div>
-          <p class="svc-body">A high-converting website built for your business. Designed to turn visitors into leads, fast-loading, mobile-first, and built to support your ads.</p>
-          <ul class="svc-items">
-            <li>Custom design</li>
-            <li>Mobile-first build</li>
-            <li>CTA-driven layout</li>
-            <li>Brand consistency</li>
-            <li>SEO-ready structure</li>
-          </ul>
+          <p class="svc-body">A high-converting website built for your business. Fast, mobile-first, and designed to turn visitors into leads from day one.</p>
+          <a href="web-design.html" class="svc-link">Learn more</a>
         </div>
       </div>
     </div>
@@ -1472,13 +1476,13 @@
           </div>
           <div class="include-item">
             <span class="include-icon">02</span>
-            <h3 class="include-title">Ad Copy &amp; Creative Direction</h3>
-            <p class="include-body">We write the scripts, headlines, and body copy. We also direct the creative — telling you exactly what to shoot and why it works.</p>
+            <h3 class="include-title">Audience Research</h3>
+            <p class="include-body">Real targeting research — not just interest stacking. We find where your customers are, what they respond to, and how to reach them efficiently.</p>
           </div>
           <div class="include-item">
             <span class="include-icon">03</span>
-            <h3 class="include-title">Audience Research</h3>
-            <p class="include-body">Real targeting research — not just interest stacking. We find where your customers are, what they respond to, and how to reach them efficiently.</p>
+            <h3 class="include-title">Ad Copy &amp; Creative Direction</h3>
+            <p class="include-body">We write the scripts, headlines, and body copy. We also direct the creative — telling you exactly what to shoot and why it works.</p>
           </div>
           <div class="include-item">
             <span class="include-icon">04</span>
@@ -1852,7 +1856,7 @@
     }, 466);
   }
   document.body.style.overflow = 'hidden';
-  setTimeout(dismissSplash, 2800);
+  setTimeout(dismissSplash, 2100);
   window.addEventListener('wheel',      dismissSplash, { passive: true, once: true });
   window.addEventListener('touchstart', dismissSplash, { passive: true, once: true });
   document.addEventListener('keydown',  dismissSplash, { once: true });

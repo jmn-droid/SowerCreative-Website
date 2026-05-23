@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Ads Management — Sower Creative</title>
+  <meta name="description" content="We build and manage Meta ad campaigns for small businesses that are serious about growth. More leads, better clients, real results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESET & BASE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.036;
+      pointer-events: none;
+      z-index: 1050;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAV
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: padding 0.25s, background 0.25s, border-color 0.25s, backdrop-filter 0.25s;
+    }
+    #nav.scrolled {
+      padding: 14px 60px;
+      background: rgba(250,245,233,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.16);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 0.09em;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+    .nav-wordmark em {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 11px 22px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       REVEAL SYSTEM
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .rv { opacity: 0; transition: opacity 0.60s ease; }
+    .rv.shown { opacity: 1; }
+    .rv[data-d="1"] { transition-delay: 0.07s; }
+    .rv[data-d="2"] { transition-delay: 0.14s; }
+    .rv[data-d="3"] { transition-delay: 0.21s; }
+
+    /* Section label */
+    .slabel {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .slabel::before {
+      content: '';
+      display: block;
+      width: 26px;
+      height: 1px;
+      flex-shrink: 0;
+    }
+    .slabel-dark  { color: var(--gold); }
+    .slabel-dark::before  { background: var(--gold); opacity: 0.5; }
+    .slabel-light { color: var(--gold); }
+    .slabel-light::before { background: var(--gold); opacity: 0.45; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       PAGE HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #page-hero {
+      padding: 160px 60px 100px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 72% 28%, #EDE5CB 0%, transparent 52%),
+        radial-gradient(ellipse at 18% 80%, #E9E1C8 0%, transparent 44%);
+    }
+    .page-hero-inner { max-width: 860px; }
+    .page-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 6.5vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      color: var(--forest);
+      margin: 22px 0 28px;
+    }
+    .page-hed em { font-style: italic; color: var(--gold); }
+    .page-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.62;
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+    .page-hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.38;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 54px;
+      transition: background 0.18s, transform 0.14s;
+    }
+    .btn-forest { color: var(--parchment); background: var(--forest); }
+    .btn-forest:hover { background: #0d2619; transform: translateY(-2px); }
+    .btn-parch { color: var(--forest); background: var(--parchment); }
+    .btn-parch:hover { background: var(--parch-mid); transform: translateY(-2px); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHAT'S INCLUDED
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #included {
+      padding: 120px 60px;
+      background: var(--forest);
+    }
+    .included-inner { max-width: 1080px; margin: 0 auto; }
+    .included-inner .slabel { margin-bottom: 36px; }
+    h2.included-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      max-width: 560px;
+    }
+    h2.included-hed em { font-style: italic; color: var(--gold); opacity: 0.88; }
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(250,245,233,0.07);
+    }
+    .inc-item {
+      background: rgba(27,67,50,0.55);
+      padding: 48px 40px;
+    }
+    .inc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      opacity: 0.55;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .inc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      color: var(--parchment);
+      margin-bottom: 14px;
+    }
+    .inc-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(250,245,233,0.48);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HOW IT WORKS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #process {
+      padding: 120px 60px;
+      background: var(--parchment);
+    }
+    .process-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .process-left {
+      position: sticky;
+      top: 120px;
+    }
+    .process-left .slabel { margin-bottom: 24px; }
+    h2.process-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.process-hed em { font-style: italic; color: var(--gold); }
+    .process-steps { display: flex; flex-direction: column; }
+    .process-step {
+      padding: 44px 0;
+      border-top: 1px solid rgba(27,67,50,0.1);
+    }
+    .process-step:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+    .step-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 1.22;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .step-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESULTS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #results {
+      padding: 128px 60px;
+      background: var(--parchment);
+      background-image: radial-gradient(ellipse at 18% 82%, #EBE2C8 0%, transparent 52%);
+    }
+    .results-inner { max-width: 1080px; margin: 0 auto; }
+    .results-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 72px;
+      flex-wrap: wrap;
+    }
+    h2.results-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 4.5vw, 3.7rem);
+      line-height: 1.05;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.results-hed em { font-style: italic; color: var(--gold); }
+    .results-note {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.35;
+      max-width: 220px;
+      text-align: right;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+      margin-bottom: 2px;
+    }
+    .stat {
+      background: var(--parchment);
+      padding: 60px 44px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3.4rem, 5.5vw, 5.4rem);
+      line-height: 1;
+      color: var(--forest);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 3px;
+    }
+    .stat-num .sfx {
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 600;
+      align-self: flex-end;
+      margin-bottom: 5px;
+    }
+    .stat-div {
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.38;
+      margin: 0 auto 13px;
+    }
+    .stat-lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.44;
+    }
+    .testimonial {
+      background: var(--parchment);
+      border: 1px solid rgba(27,67,50,0.11);
+      padding: 56px 60px;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.16;
+      position: absolute;
+      top: 24px;
+      left: 48px;
+    }
+    .testimonial-txt {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--forest);
+      max-width: 640px;
+      margin: 0 auto 26px;
+      text-align: center;
+      opacity: 0.68;
+    }
+    .testimonial-attr {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      opacity: 0.32;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHO IT'S FOR
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #for-who {
+      padding: 120px 60px;
+      background: var(--parchment);
+    }
+    .for-who-inner { max-width: 1080px; margin: 0 auto; }
+    .for-who-inner .slabel { margin-bottom: 32px; }
+    h2.for-who-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+      margin-bottom: 56px;
+      max-width: 600px;
+    }
+    h2.for-who-hed em { font-style: italic; color: var(--gold); }
+    .fits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .fit-item {
+      background: var(--parchment);
+      padding: 44px 48px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .fit-check {
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(212,160,23,0.5);
+      flex-shrink: 0;
+      margin-top: 3px;
+      position: relative;
+    }
+    .fit-check::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+    .fit-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.7;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #cta-sec {
+      padding: 120px 60px;
+      background: var(--forest);
+      text-align: center;
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta-inner .slabel { justify-content: center; margin-bottom: 28px; }
+    h2.cta-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.08;
+      color: var(--parchment);
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+    }
+    h2.cta-hed em { font-style: italic; color: var(--gold); opacity: 0.88; }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(250,245,233,0.52);
+      margin-bottom: 44px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer {
+      background: var(--ink);
+      padding: 52px 60px 36px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(250,245,233,0.07);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy { font-size: 11px; color: rgba(250,245,233,0.17); letter-spacing: 0.03em; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 900px) {
+      .included-grid { grid-template-columns: 1fr; }
+      .process-inner { grid-template-columns: 1fr; gap: 48px; }
+      .process-left { position: static; }
+      .stats-row { grid-template-columns: 1fr; }
+      .fits-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      #nav, #nav.scrolled { padding: 18px 24px; }
+      .nav-buttons { gap: 8px; }
+      .nav-btn { display: none; }
+      #page-hero { padding: 130px 24px 72px; }
+      #included, #process, #results, #for-who, #cta-sec { padding: 80px 24px; }
+      footer, .footer-top { padding-left: 24px; padding-right: 24px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+  <div class="nav-buttons">
+    <a href="about.html" class="nav-btn">About</a>
+    <a href="meta-ads.html" class="nav-btn active">Meta Ads</a>
+    <a href="web-design.html" class="nav-btn">Web Design</a>
+    <a href="work.html" class="nav-btn">Our Work</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section id="page-hero">
+  <div class="page-hero-inner">
+    <p class="slabel slabel-dark rv left">Meta Ads Management</p>
+    <h1 class="page-hed rv up" data-d="1">
+      Campaigns that bring<br>in <em>real leads.</em>
+    </h1>
+    <p class="page-sub rv up" data-d="2">
+      We build and manage Meta ad campaigns for small service businesses. Strategy, creative, targeting, and optimization -- all handled. You focus on the jobs. We fill your pipeline.
+    </p>
+    <div class="page-hero-rule rv up" data-d="3"></div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section id="included">
+  <div class="included-inner">
+    <p class="slabel slabel-light rv left">What's Included</p>
+    <h2 class="included-hed rv up" data-d="1">
+      Everything you need.<br><em>Nothing you don't.</em>
+    </h2>
+    <div class="included-grid">
+      <div class="inc-item rv up">
+        <span class="inc-num">01</span>
+        <h3 class="inc-title">Campaign Strategy</h3>
+        <p class="inc-body">We start with your business, your offer, and your market. Then we build a campaign around what's actually going to convert -- not just what looks good on paper.</p>
+      </div>
+      <div class="inc-item rv up" data-d="1">
+        <span class="inc-num">02</span>
+        <h3 class="inc-title">Audience Research</h3>
+        <p class="inc-body">No broad targeting and hoping for the best. We find the specific people most likely to become your customers and build audiences around them.</p>
+      </div>
+      <div class="inc-item rv up" data-d="2">
+        <span class="inc-num">03</span>
+        <h3 class="inc-title">Ad Creative & Copy</h3>
+        <p class="inc-body">We write the ads. Hooks, headlines, body copy, and CTAs built to stop the scroll and drive action. Every word earns its place.</p>
+      </div>
+      <div class="inc-item rv up">
+        <span class="inc-num">04</span>
+        <h3 class="inc-title">Ongoing Optimization</h3>
+        <p class="inc-body">We watch the numbers and make adjustments week over week. What's working gets scaled. What's not gets cut. Your budget is never on autopilot.</p>
+      </div>
+      <div class="inc-item rv up" data-d="1">
+        <span class="inc-num">05</span>
+        <h3 class="inc-title">Landing Page Guidance</h3>
+        <p class="inc-body">A great ad dies on a bad landing page. We'll review your existing page and give you clear direction on what needs to change to make it convert.</p>
+      </div>
+      <div class="inc-item rv up" data-d="2">
+        <span class="inc-num">06</span>
+        <h3 class="inc-title">Monthly Reports</h3>
+        <p class="inc-body">Plain-English performance reports every month. What we spent, what it produced, and what we're doing next. No jargon, no fluff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="process-left">
+      <p class="slabel slabel-dark rv left">How It Works</p>
+      <h2 class="process-hed rv up" data-d="1">
+        From call to<br>campaign in <em>two weeks.</em>
+      </h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step rv up">
+        <span class="step-n">01</span>
+        <h3 class="step-title">Strategy Call</h3>
+        <p class="step-body">We start with a 30-minute call to understand your business, your ideal customer, and what a great lead looks like for you. If we're a good fit, we move forward. If not, we'll say so.</p>
+      </div>
+      <div class="process-step rv up" data-d="1">
+        <span class="step-n">02</span>
+        <h3 class="step-title">Research & Build</h3>
+        <p class="step-body">We spend the first two weeks on research -- audience analysis, competitor ads, offer positioning. Then we build your campaign from the ground up before a single dollar goes to Meta.</p>
+      </div>
+      <div class="process-step rv up" data-d="2">
+        <span class="step-n">03</span>
+        <h3 class="step-title">Launch & Learn</h3>
+        <p class="step-body">We launch and watch everything closely. The first 30 days are about data -- understanding what's resonating, where leads are dropping off, and what the numbers are telling us.</p>
+      </div>
+      <div class="process-step rv up">
+        <span class="step-n">04</span>
+        <h3 class="step-title">Scale What Works</h3>
+        <p class="step-body">Once we know what's converting, we scale it. Budget goes toward what the data supports. Every month we refine the targeting, test new creative, and push toward a lower cost per lead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-inner">
+    <div class="results-hdr">
+      <div>
+        <p class="slabel slabel-dark rv left" style="margin-bottom:22px;">Results</p>
+        <h2 class="results-hed rv up" data-d="1">
+          Numbers<br>from <em>the field.</em>
+        </h2>
+      </div>
+      <p class="results-note rv up" data-d="2">
+        Representative results from active client campaigns. Results vary by industry, offer, and budget.
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat rv up">
+        <div class="stat-num">
+          <span class="ctr" data-target="4.3" data-dec="1">0</span><span class="sfx">x</span>
+        </div>
+        <div class="stat-div"></div>
+        <p class="stat-lbl">Average ROAS</p>
+      </div>
+      <div class="stat rv up" data-d="1">
+        <div class="stat-num">
+          <span class="ctr" data-target="82" data-dec="0">0</span><span class="sfx">+</span>
+        </div>
+        <div class="stat-div"></div>
+        <p class="stat-lbl">Leads per month</p>
+      </div>
+      <div class="stat rv up" data-d="2">
+        <div class="stat-num">
+          <span class="ctr" data-target="30" data-dec="0">0</span><span class="sfx">d</span>
+        </div>
+        <div class="stat-div"></div>
+        <p class="stat-lbl">Avg. ramp to profitable</p>
+      </div>
+    </div>
+
+    <div class="testimonial rv up" data-d="1">
+      <p class="testimonial-txt">
+        "In the first month alone, 2x the amount of bookings we had every single month. We had to hire two people in Eugene and an additional person in Salem just to handle the volume. The results obviously speak for themselves -- it will be one of the easiest decisions you make."
+      </p>
+      <p class="testimonial-attr">— Molly, Valley Cleaners</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section id="for-who">
+  <div class="for-who-inner">
+    <p class="slabel slabel-dark rv left">Who It's For</p>
+    <h2 class="for-who-hed rv up" data-d="1">
+      A good fit if<br><em>this sounds like you.</em>
+    </h2>
+    <div class="fits-grid">
+      <div class="fit-item rv up">
+        <div class="fit-check"></div>
+        <p class="fit-text">You're a service business -- contractor, consultant, clinic, agency -- and you need a consistent flow of qualified leads.</p>
+      </div>
+      <div class="fit-item rv up" data-d="1">
+        <div class="fit-check"></div>
+        <p class="fit-text">You've tried boosting posts or running your own ads, and it hasn't produced the results you expected.</p>
+      </div>
+      <div class="fit-item rv up">
+        <div class="fit-check"></div>
+        <p class="fit-text">You have a real offer that delivers results -- you just need the right people in front of it.</p>
+      </div>
+      <div class="fit-item rv up" data-d="1">
+        <div class="fit-check"></div>
+        <p class="fit-text">You want a partner who tells you the truth, not just what you want to hear about your campaign's performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta-sec">
+  <div class="cta-inner">
+    <p class="slabel slabel-light rv left">Get Started</p>
+    <h2 class="cta-hed rv up" data-d="1">
+      Ready to fill<br>your <em>pipeline?</em>
+    </h2>
+    <p class="cta-sub rv up" data-d="2">
+      30-minute strategy call. No pressure, no pitch deck. Just a real conversation about your business and what's possible.
+    </p>
+    <div class="rv up" data-d="3">
+      <a href="book.html" class="btn btn-parch">Book a Free Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Sower Creative</span>
+      <span class="footer-tag">Meta Ads + Website Design</span>
+    </div>
+    <nav class="footer-nav-links" aria-label="Footer">
+      <a href="index.html" class="fl">Home</a>
+      <a href="about.html" class="fl">About</a>
+      <a href="meta-ads.html" class="fl">Meta Ads</a>
+      <a href="web-design.html" class="fl">Web Design</a>
+      <a href="work.html" class="fl">Our Work</a>
+      <a href="book.html" class="fl">Book a Call</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('shown');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+  /* Stat counters */
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function runCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const dec    = parseInt(el.dataset.dec) || 0;
+    const dur    = 1190;
+    const t0     = performance.now();
+    const tick   = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const v = easeOut(p) * target;
+      el.textContent = dec > 0 ? v.toFixed(dec) : Math.round(v);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  const ctrObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { runCounter(e.target); ctrObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.ctr').forEach(el => ctrObserver.observe(el));
+
+  /* Auto-reveal page hero */
+  window.addEventListener('load', () => {
+    document.querySelectorAll('#page-hero .rv').forEach((el, i) => {
+      setTimeout(() => el.classList.add('shown'), 100 + i * 110);
+    });
+  });
+</script>
+
+</body>
+</html>

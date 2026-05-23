@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Design — Sower Creative</title>
+  <meta name="description" content="High-converting websites for small service businesses. Fast, mobile-first, and built to turn visitors into leads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESET & BASE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest:    #1B4332;
+      --gold:      #D4A017;
+      --parchment: #FAF5E9;
+      --parch-mid: #EFE7D0;
+      --ink:       #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.036;
+      pointer-events: none;
+      z-index: 1050;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAV
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: padding 0.25s, background 0.25s, border-color 0.25s, backdrop-filter 0.25s;
+    }
+    #nav.scrolled {
+      padding: 14px 60px;
+      background: rgba(250,245,233,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,160,23,0.16);
+    }
+    .nav-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: 0.09em;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+    .nav-wordmark em {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid rgba(27,67,50,0.28);
+      padding: 11px 22px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--forest);
+      color: var(--parchment);
+      border-color: var(--forest);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       REVEAL SYSTEM
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .rv { opacity: 0; transition: opacity 0.60s ease; }
+    .rv.shown { opacity: 1; }
+    .rv[data-d="1"] { transition-delay: 0.07s; }
+    .rv[data-d="2"] { transition-delay: 0.14s; }
+    .rv[data-d="3"] { transition-delay: 0.21s; }
+
+    .slabel {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .slabel::before {
+      content: '';
+      display: block;
+      width: 26px;
+      height: 1px;
+      flex-shrink: 0;
+    }
+    .slabel-dark  { color: var(--gold); }
+    .slabel-dark::before  { background: var(--gold); opacity: 0.5; }
+    .slabel-light { color: var(--gold); }
+    .slabel-light::before { background: var(--gold); opacity: 0.45; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       PAGE HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #page-hero {
+      padding: 160px 60px 100px;
+      background: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 22% 30%, #EDE5CB 0%, transparent 52%),
+        radial-gradient(ellipse at 78% 75%, #E9E1C8 0%, transparent 44%);
+    }
+    .page-hero-inner { max-width: 860px; }
+    .page-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 6.5vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      color: var(--forest);
+      margin: 22px 0 28px;
+    }
+    .page-hed em { font-style: italic; color: var(--gold); }
+    .page-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.62;
+      max-width: 540px;
+      margin-bottom: 40px;
+    }
+    .page-hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.38;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 54px;
+      transition: background 0.18s, transform 0.14s;
+    }
+    .btn-forest { color: var(--parchment); background: var(--forest); }
+    .btn-forest:hover { background: #0d2619; transform: translateY(-2px); }
+    .btn-parch { color: var(--forest); background: var(--parchment); }
+    .btn-parch:hover { background: var(--parch-mid); transform: translateY(-2px); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHAT WE BUILD
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #what-we-build {
+      padding: 120px 60px;
+      background: var(--forest);
+    }
+    .build-inner { max-width: 1080px; margin: 0 auto; }
+    .build-inner .slabel { margin-bottom: 36px; }
+    h2.build-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      max-width: 560px;
+    }
+    h2.build-hed em { font-style: italic; color: var(--gold); opacity: 0.88; }
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(250,245,233,0.07);
+    }
+    .build-item {
+      background: rgba(27,67,50,0.55);
+      padding: 48px 40px;
+    }
+    .build-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      opacity: 0.55;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .build-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      color: var(--parchment);
+      margin-bottom: 14px;
+    }
+    .build-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(250,245,233,0.48);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       OUR PROCESS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #process {
+      padding: 120px 60px;
+      background: var(--parchment);
+    }
+    .process-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .process-left {
+      position: sticky;
+      top: 120px;
+    }
+    .process-left .slabel { margin-bottom: 24px; }
+    h2.process-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    h2.process-hed em { font-style: italic; color: var(--gold); }
+    .process-steps { display: flex; flex-direction: column; }
+    .process-step {
+      padding: 44px 0;
+      border-top: 1px solid rgba(27,67,50,0.1);
+    }
+    .process-step:last-child { border-bottom: 1px solid rgba(27,67,50,0.1); }
+    .step-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.2;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 1.22;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .step-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHY IT MATTERS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #why {
+      padding: 120px 60px;
+      background: var(--parch-mid);
+    }
+    .why-inner { max-width: 1080px; margin: 0 auto; }
+    .why-inner .slabel { margin-bottom: 32px; }
+    h2.why-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      max-width: 580px;
+    }
+    h2.why-hed em { font-style: italic; color: var(--gold); }
+    .why-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(27,67,50,0.08);
+    }
+    .why-pt {
+      background: var(--parchment);
+      padding: 48px 44px;
+    }
+    .why-pt-rule {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 22px;
+    }
+    .why-pt-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      line-height: 1.22;
+      color: var(--forest);
+      margin-bottom: 14px;
+    }
+    .why-pt-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    #cta-sec {
+      padding: 120px 60px;
+      background: var(--forest);
+      text-align: center;
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta-inner .slabel { justify-content: center; margin-bottom: 28px; }
+    h2.cta-hed {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.08;
+      color: var(--parchment);
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+    }
+    h2.cta-hed em { font-style: italic; color: var(--gold); opacity: 0.88; }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(250,245,233,0.52);
+      margin-bottom: 44px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer {
+      background: var(--ink);
+      padding: 52px 60px 36px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(250,245,233,0.07);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      color: var(--parchment);
+    }
+    .footer-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.48;
+    }
+    .footer-nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .fl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,245,233,0.28);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .fl:hover { color: rgba(250,245,233,0.68); }
+    .footer-copy { font-size: 11px; color: rgba(250,245,233,0.17); letter-spacing: 0.03em; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESPONSIVE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    @media (max-width: 900px) {
+      .build-grid { grid-template-columns: 1fr; }
+      .process-inner { grid-template-columns: 1fr; gap: 48px; }
+      .process-left { position: static; }
+      .why-points { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      #nav, #nav.scrolled { padding: 18px 24px; }
+      .nav-buttons { gap: 8px; }
+      .nav-btn { display: none; }
+      #page-hero { padding: 130px 24px 72px; }
+      #what-we-build, #process, #why, #cta-sec { padding: 80px 24px; }
+      footer, .footer-top { padding-left: 24px; padding-right: 24px; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-wordmark">Sower <em>Creative</em></a>
+  <div class="nav-buttons">
+    <a href="about.html" class="nav-btn">About</a>
+    <a href="meta-ads.html" class="nav-btn">Meta Ads</a>
+    <a href="web-design.html" class="nav-btn active">Web Design</a>
+    <a href="work.html" class="nav-btn">Our Work</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section id="page-hero">
+  <div class="page-hero-inner">
+    <p class="slabel slabel-dark rv left">Website Design</p>
+    <h1 class="page-hed rv up" data-d="1">
+      A site that turns<br>visitors into <em>leads.</em>
+    </h1>
+    <p class="page-sub rv up" data-d="2">
+      Most small business websites look fine and do nothing. We build sites that have one job: turning the right visitors into real inquiries. Fast, mobile-first, and built to support your ads.
+    </p>
+    <div class="page-hero-rule rv up" data-d="3"></div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section id="what-we-build">
+  <div class="build-inner">
+    <p class="slabel slabel-light rv left">What's Included</p>
+    <h2 class="build-hed rv up" data-d="1">
+      Built to convert.<br><em>From day one.</em>
+    </h2>
+    <div class="build-grid">
+      <div class="build-item rv up">
+        <span class="build-num">01</span>
+        <h3 class="build-title">Custom Design</h3>
+        <p class="build-body">No templates. No drag-and-drop compromise. Every page is designed around your brand, your offer, and the action you want visitors to take.</p>
+      </div>
+      <div class="build-item rv up" data-d="1">
+        <span class="build-num">02</span>
+        <h3 class="build-title">Mobile-First Build</h3>
+        <p class="build-body">Over 70% of your visitors are on a phone. We design for mobile first, then scale up -- not the other way around. Every button, form, and section works perfectly on a small screen.</p>
+      </div>
+      <div class="build-item rv up" data-d="2">
+        <span class="build-num">03</span>
+        <h3 class="build-title">Conversion-Focused Copy</h3>
+        <p class="build-body">We write the words too. Headlines that hook, copy that builds trust, and CTAs that actually get clicked. Every word is working toward one goal.</p>
+      </div>
+      <div class="build-item rv up">
+        <span class="build-num">04</span>
+        <h3 class="build-title">Fast Load Times</h3>
+        <p class="build-body">Slow sites lose leads. We keep the code clean and the assets optimized so your site loads fast -- on any connection, on any device.</p>
+      </div>
+      <div class="build-item rv up" data-d="1">
+        <span class="build-num">05</span>
+        <h3 class="build-title">Ad-Ready Structure</h3>
+        <p class="build-body">If you're running Meta ads, your landing page has to match your ad's promise. We build with that handoff in mind so visitors land exactly where they need to be.</p>
+      </div>
+      <div class="build-item rv up" data-d="2">
+        <span class="build-num">06</span>
+        <h3 class="build-title">SEO-Ready Foundation</h3>
+        <p class="build-body">Clean HTML, proper heading structure, fast load times, and meta tags set up correctly from the start. A solid foundation for search visibility as you grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="process-left">
+      <p class="slabel slabel-dark rv left">Our Process</p>
+      <h2 class="process-hed rv up" data-d="1">
+        Live in<br><em>days, not months.</em>
+      </h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step rv up">
+        <span class="step-n">01</span>
+        <h3 class="step-title">Discovery Call</h3>
+        <p class="step-body">We start with a conversation about your business, your customers, and what you want your website to do. We look at your existing site, your competitors, and your market before we design a single page.</p>
+      </div>
+      <div class="process-step rv up" data-d="1">
+        <span class="step-n">02</span>
+        <h3 class="step-title">Strategy & Structure</h3>
+        <p class="step-body">Before we touch design, we map the page structure -- what sections are needed, what order they go in, and what each one needs to accomplish. Layout decisions made here save weeks of revisions later.</p>
+      </div>
+      <div class="process-step rv up" data-d="2">
+        <span class="step-n">03</span>
+        <h3 class="step-title">Design & Build</h3>
+        <p class="step-body">We design and build simultaneously. You'll see a working version in the browser -- not a static mockup -- so you can review the real thing. Revisions are quick because there's no handoff between designer and developer.</p>
+      </div>
+      <div class="process-step rv up">
+        <span class="step-n">04</span>
+        <h3 class="step-title">Launch & Hand Off</h3>
+        <p class="step-body">We QA every page across devices, set up your hosting, and get you live. After launch, you own everything -- files, domain, and hosting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section id="why">
+  <div class="why-inner">
+    <p class="slabel slabel-dark rv left">Why It Matters</p>
+    <h2 class="why-hed rv up" data-d="1">
+      Your website is your<br>best <em>salesperson.</em>
+    </h2>
+    <div class="why-points">
+      <div class="why-pt rv up">
+        <div class="why-pt-rule"></div>
+        <h3 class="why-pt-title">Most sites don't convert</h3>
+        <p class="why-pt-body">The average small business website is built to look good, not to generate leads. There's no clear CTA, the copy is about the company instead of the customer, and the mobile experience is an afterthought. Visitors bounce.</p>
+      </div>
+      <div class="why-pt rv up" data-d="1">
+        <div class="why-pt-rule"></div>
+        <h3 class="why-pt-title">Ads need a great landing page</h3>
+        <p class="why-pt-body">Sending Meta ad traffic to a weak homepage wastes your budget. We build landing pages that match your ad's message, reduce friction, and move visitors toward a single action -- calling you, filling out a form, or booking a call.</p>
+      </div>
+      <div class="why-pt rv up">
+        <div class="why-pt-rule"></div>
+        <h3 class="why-pt-title">First impressions are made in seconds</h3>
+        <p class="why-pt-body">Visitors decide in under three seconds whether to stay or leave. That decision is made on design, speed, and clarity -- not your service list. We build sites that earn those three seconds.</p>
+      </div>
+      <div class="why-pt rv up" data-d="1">
+        <div class="why-pt-rule"></div>
+        <h3 class="why-pt-title">You get something you own</h3>
+        <p class="why-pt-body">We build in clean HTML, CSS, and JavaScript -- no page builders, no subscription platforms. When the project is done, the site is yours. Full stop. No monthly license, no vendor lock-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta-sec">
+  <div class="cta-inner">
+    <p class="slabel slabel-light rv left">Get Started</p>
+    <h2 class="cta-hed rv up" data-d="1">
+      Let's build something<br><em>that works.</em>
+    </h2>
+    <p class="cta-sub rv up" data-d="2">
+      30-minute call. We'll look at your current site, talk through what a better one would do for your business, and see if we're a good fit.
+    </p>
+    <div class="rv up" data-d="3">
+      <a href="book.html" class="btn btn-parch">Book a Free Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Sower Creative</span>
+      <span class="footer-tag">Meta Ads + Website Design</span>
+    </div>
+    <nav class="footer-nav-links" aria-label="Footer">
+      <a href="index.html" class="fl">Home</a>
+      <a href="about.html" class="fl">About</a>
+      <a href="meta-ads.html" class="fl">Meta Ads</a>
+      <a href="web-design.html" class="fl">Web Design</a>
+      <a href="work.html" class="fl">Our Work</a>
+      <a href="book.html" class="fl">Book a Call</a>
+    </nav>
+  </div>
+  <p class="footer-copy">&copy; 2026 Sower Creative. All rights reserved.</p>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('shown');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+  document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+
+  /* Auto-reveal page hero */
+  window.addEventListener('load', () => {
+    document.querySelectorAll('#page-hero .rv').forEach((el, i) => {
+      setTimeout(() => el.classList.add('shown'), 100 + i * 110);
+    });
+  });
+</script>
+
+</body>
+</html>
