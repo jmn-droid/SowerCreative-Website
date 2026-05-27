@@ -1013,25 +1013,60 @@
     <p>&copy; 2026 Sower Creative</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
+    const EMAILJS_PUBLIC_KEY  = 'qCrgLEk4HbUrkVyLh';
+    const EMAILJS_SERVICE_ID  = 'service_p46bkwg';
+    const EMAILJS_TEMPLATE_ID = 'template_yq8jnns';
+    const GHL_WEBHOOK_URL     = 'https://services.leadconnectorhq.com/hooks/5Y0Jf0mLBFALgKRlteH3/webhook-trigger/sqP35FvTCbaGMAfhJNAL';
+    const NOTIFY_EMAIL        = 'jmn@sowercreative.com';
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    document.getElementById('leadForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+      var btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
       var data = {
-        name: document.getElementById('name').value,
-        trade: document.getElementById('trade').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        source: 'Ad Landing Page'
+        name:   document.getElementById('name').value,
+        trade:  document.getElementById('trade').value,
+        phone:  document.getElementById('phone').value,
+        email:  document.getElementById('email').value,
+        source: 'Ad Landing Page — sowercreative.com/form'
       };
-      fbq('track', 'Lead');
-      fetch('https://services.leadconnectorhq.com/hooks/5Y0Jf0mLBFALgKRlteH3/webhook-trigger/sqP35FvTCbaGMAfhJNAL', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).finally(function() {
-        document.getElementById('heroFormState').style.display = 'none';
-        document.getElementById('thankyouState').classList.add('visible');
-      });
+
+      var emailBody = [
+        'NEW LEAD — WEBSITE DESIGN AD',
+        '================================',
+        '',
+        'Name: ' + data.name,
+        'Trade: ' + data.trade,
+        'Phone: ' + data.phone,
+        'Email: ' + data.email,
+        'Source: ' + data.source
+      ].join('\n');
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email:    NOTIFY_EMAIL,
+          tier:        'Website Design Ad Lead',
+          client_name: data.name,
+          form_data:   emailBody
+        });
+
+        await fetch(GHL_WEBHOOK_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(data)
+        });
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById('heroFormState').style.display = 'none';
+      document.getElementById('thankyouState').classList.add('visible');
     });
 
     document.querySelectorAll('.faq-question').forEach(function(btn) {
